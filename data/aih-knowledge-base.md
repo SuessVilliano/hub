@@ -277,3 +277,12 @@ https://api.leadconnectorhq.com/widget/booking/fXIMmcl2IcRjvFLvsRsN
 - Incoming public calls should be answered by AI Voice Concierge on 302-404-2323.
 - When a human is requested or required, transfer to 302-402-3752, which routes to the human team through Google Voice round-robin.
 - Do not publish 302-402-3752 as the primary company number.
+
+
+## Email Routing
+Public-facing / outreach email: contact@appliedinnovationshub.com
+
+Rules:
+- Use contact@appliedinnovationshub.com as the only public company email on the website, proposals, outreach, public profiles, and general contact materials unless explicitly instructed otherwise.
+- Staff forwarding addresses are internal and must not be published by default.
+- Event and workshop sender addresses may be used for their dedicated operational email flows only after they are verified/configured; do not publish them as the general contact address.
