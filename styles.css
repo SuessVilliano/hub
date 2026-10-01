@@ -332,3 +332,39 @@ button:disabled{opacity:.6;cursor:wait;transform:none!important}
   .quick-modules{padding:22px}
   .footer-grid{grid-template-columns:1fr}
 }
+
+
+/* Managed Agent Studio */
+.managed-agents{position:relative}
+.agent-studio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.agent-role{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:26px;min-height:210px}
+.agent-role>span{font-size:10px;letter-spacing:2px;color:var(--cyan)}
+.agent-role h3{font-size:23px;margin:38px 0 10px;letter-spacing:-.7px}
+.agent-role p{color:var(--muted);line-height:1.65;margin:0}
+.agent-method{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr auto 1fr;gap:12px;align-items:center;margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(120deg,var(--panel),var(--panel2))}
+.agent-method div{display:flex;flex-direction:column;gap:5px}.agent-method b{font-size:10px;letter-spacing:1.5px;color:var(--cyan)}.agent-method span{font-size:11px;color:var(--muted)}.agent-method i{font-style:normal;color:var(--blue)}
+.managed-cta{margin-top:16px;border:1px solid #2b4664;border-radius:20px;padding:28px 30px;background:linear-gradient(120deg,#071420,#11192b 58%,#1b102e);color:#fff;display:flex;justify-content:space-between;gap:30px;align-items:center}
+.managed-cta h3{font-size:30px;margin:10px 0 6px}.managed-cta p{margin:0;color:#aab6c6;line-height:1.65;max-width:760px}
+
+/* Advisory bench */
+.advisory-network{position:relative}
+.advisory-panel{display:grid;grid-template-columns:1.12fr .88fr;gap:26px;border:1px solid #2c435e;border-radius:22px;padding:30px;background:linear-gradient(135deg,color-mix(in srgb,var(--panel) 94%,#0b1b2e),color-mix(in srgb,var(--panel2) 88%,#1f1432))}
+.advisory-copy h3{font-size:42px;letter-spacing:-1.5px;margin:16px 0 12px}.advisory-copy p{color:var(--muted);line-height:1.75}
+.advisory-tags{display:flex;gap:7px;flex-wrap:wrap;margin:22px 0}.advisory-tags span{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:9px;color:var(--soft);background:var(--bg2)}
+.advisory-outcomes{display:grid;gap:10px}.advisory-outcomes div{border:1px solid rgba(103,232,249,.13);border-radius:14px;padding:18px;background:rgba(3,8,14,.28)}.advisory-outcomes b{display:block;color:var(--cyan);font-size:10px;letter-spacing:2px;margin-bottom:7px}.advisory-outcomes span{font-size:12px;color:#b7c2cf;line-height:1.5}
+
+/* Acquisition strategy */
+.acquisition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.acquisition-grid article{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:26px;min-height:230px}
+.acquisition-grid article>span{font-size:10px;color:var(--cyan);letter-spacing:2px}.acquisition-grid h3{font-size:23px;margin:38px 0 10px}.acquisition-grid p{color:var(--muted);line-height:1.65;margin:0}
+
+@media(max-width:1040px){
+  .agent-studio-grid,.acquisition-grid{grid-template-columns:1fr 1fr}
+  .agent-method{grid-template-columns:1fr}.agent-method i{transform:rotate(90deg);justify-self:start}
+  .advisory-panel{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .agent-studio-grid,.acquisition-grid{grid-template-columns:1fr}
+  .managed-cta{align-items:flex-start;flex-direction:column}
+  .advisory-panel{padding:22px}
+}
