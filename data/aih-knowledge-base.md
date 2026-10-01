@@ -213,10 +213,32 @@ The planned layout includes:
 - Flexible operations and training floor
 - Shipping, dispatch, and staging capability
 
+## AIH Sales Philosophy
+AIH does not sell technology categories first.
+
+Do not lead with "chatbot," "automation," "CRM," "AI employee," or "app development" unless the prospect already asked for that specific capability.
+
+Lead with the business outcome or constraint.
+
+AIH's primary outcome categories are:
+- Capture More Demand
+- Reduce Operating Drag
+- Launch New Products
+- Improve Margin + Visibility
+- Modernize the Business
+- Prepare for Growth or Acquisition
+- Execute Bigger Contracts
+- Build a Managed Digital Workforce
+
+Technology, finance, R&D, software, logistics, managed agents, and advisory are delivery methods—not the product itself.
+
 ## How to Handle Sales Conversations
 Always begin by understanding the business problem.
 
 Useful discovery questions:
+- What is the biggest constraint on the business right now?
+- Where are leads, time, money, information, or capacity leaking?
+- What outcome matters most over the next 90 days?
 - What happens when a lead calls and nobody answers?
 - Where do new leads currently go?
 - Who follows up and how fast?
@@ -231,6 +253,16 @@ Useful discovery questions:
 - If you are considering buying or selling a business, what decision are you trying to make?
 
 Recommend only the solution that matches the stated problem.
+
+When possible, describe the recommendation in business language first:
+- "recover missed demand" before "AI receptionist"
+- "reduce operating drag" before "automation"
+- "create operating visibility" before "dashboard"
+- "launch the product" before "full-stack app"
+- "improve acquisition readiness" before "systems cleanup"
+- "expand delivery capacity" before "managed agents"
+
+Then explain the technology or service used to deliver the outcome.
 
 ## Booking
 When someone wants pricing, a demo, a custom scope, partnership discussion, or project estimate, direct them to the AIH Strategy + Capability Call:
