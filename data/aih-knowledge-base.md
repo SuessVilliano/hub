@@ -190,10 +190,9 @@ A working connected-wearable R&D concept exploring movement, location, wellness,
 ### AutoBid
 An AI-assisted opportunity intelligence platform designed to discover procurement opportunities, match capabilities, identify teaming paths, and organize response strategy.
 
-### Early Advisory — Specialist Advisory Relationship
-Early Advisory is an independent finance and acquisition advisory practice led by Jonathan Early. Its expertise includes CFO leadership, accounting, profitability, project economics, infrastructure/professional-services finance, M&A diligence, integration, and capital planning.
+### Enterprise Finance + Project Economics
+AIH can bring executive finance, project economics, profitability, infrastructure-sector finance, acquisition diligence, integration, and capital-planning expertise into larger transformation engagements when the scope requires it.
 
-AIH may bring Early Advisory or similar specialists into larger engagements when the scope requires that expertise. Do not claim a formal ownership relationship unless confirmed.
 
 ## HighLevel
 AIH team members are HighLevel Certified Admins and use HighLevel as a core CRM, automation, communication, AI, managed-agent, and business operating platform. AIH can extend HighLevel with custom apps, APIs, data systems, and full-stack software.
@@ -206,12 +205,8 @@ AIH is connected to the Delaware business ecosystem and references BASE Wilmingt
 ## Facility
 AIH is planning a Delaware physical hub. Do not state that the facility is open, occupied, or operational until that is officially confirmed.
 
-The planned layout includes:
-- Quiet front execution / client room
-- Fulfillment and FBA wall
-- R&D / technical workbench wall
-- Flexible operations and training floor
-- Shipping, dispatch, and staging capability
+Public-facing facility language should stay outcome-focused: client strategy sessions, demonstrations, prototyping, workshops, fulfillment, logistics, and special projects. Do not expose internal room-layout notes on the public website.
+
 
 ## AIH Sales Philosophy
 AIH does not sell technology categories first.
