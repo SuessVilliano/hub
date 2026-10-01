@@ -1,32 +1,81 @@
 # Applied Innovations Hub
 
-**Holding brand:** Applied Innovations Hub (AIH)  
-**Positioning:** Research. Build. Deploy.
+**Working brand:** Applied Innovations Hub (AIH)  
+**Positioning:** **Research. Build. Deploy.**
 
-This repository contains the first live website build for AIH.
+This repository contains the current interactive website build for AIH.
 
-## What AIH is being built to support
-- Applied R&D and prototyping
-- AI and business systems
-- E-commerce fulfillment and FBA support
-- Logistics and last-mile operations
-- Commercial and public-sector subcontract support
-- Training and workforce programs
-- Trading / analytics execution environments
-- Content and operational technology
+## Current experience
+- Premium dark industrial-tech visual system
+- Light / dark mode with saved preference
+- Animated loader, reveal motion, hover effects and interactive facility diagram
+- Fully responsive mobile navigation and layouts
+- AIH Assistant with capability knowledge and scheduling handoff
+- Strategy-call calendar modal with external scheduler fallback
+- Exit-intent founding-access offer
+- Project intake and event-interest flows
+- Founding Access conversion section
+- Events / programming section
+- Government + prime-contractor positioning with verified-claims guardrails
+- Search-focused metadata, FAQ schema, organization schema and semantic content
+- Web app manifest, robots rules, privacy, terms and branded 404
 
-## Brand direction
-Premium, industrial, technical, exclusive.  
-Primary mark: AIH monogram.  
-Core palette: near-black, white, electric cyan, blue, violet.
+## AIH capability pillars
+1. AI + Business Systems
+2. Applied Research + Development
+3. Commerce + Fulfillment / Amazon FBA support
+4. Logistics + Last Mile
+5. Commercial + Public-Sector Solutions
+6. Training + Workforce Programs
 
-## Site files
+## Planned physical hub
+The public site intentionally describes the Delaware facility as **planned** until occupancy and final operations are verified. The working flow is:
+- Quiet front execution / trading / client room
+- Fulfillment + FBA wall
+- R&D / technical workbench wall
+- Flexible operations / training / staging floor
+- Shipping, dispatch and last-mile staging
+
+## Conversion flows
+The site currently hands booking to:
+`https://speakwith.us/jamaurjohnson`
+
+Project and interest forms currently use local browser storage as a prototype step before opening scheduling. Replace this with the production CRM/webhook once an AIH-specific lead pipeline is connected.
+
+## SEO
+The home page currently targets natural-language topics around:
+- AI automation in Delaware
+- Delaware R&D / applied technology
+- Business automation and CRM systems
+- E-commerce fulfillment / FBA prep
+- Logistics / last-mile workflows
+- Prime contractor / subcontract support
+- AI and business workshops
+- New Castle County / Delaware innovation
+
+Before public production launch:
+- connect the final domain
+- add a canonical URL and absolute Open Graph image URL
+- add the final sitemap URL to `robots.txt`
+- connect Search Console / analytics
+- replace prototype lead storage with CRM submission
+- publish registrations, certifications or contract identifiers only after verification
+
+## Core files
 - `index.html`
 - `styles.css`
 - `script.js`
 - `assets/aih-mark.svg`
 - `assets/aih-logo.svg`
+- `site.webmanifest`
+- `robots.txt`
+- `privacy.html`
+- `terms.html`
+- `404.html`
 - `vercel.json`
 
-## Notes
-The company name is a working holding brand and may evolve. Public-facing claims about certifications, registrations, government-contract status, facility occupancy, or specific partner relationships should only be added once verified.
+## Brand direction
+Exclusive, industrial, technical, modern and credible.  
+Core palette: near-black, soft white, electric cyan, blue and restrained violet.
+
+The AIH name is currently a holding brand and may evolve.
