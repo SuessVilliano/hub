@@ -125,7 +125,7 @@ Capabilities can include:
 - post-close integration
 - growth planning
 
-AIH may collaborate with specialist advisors such as Early Advisory when a project requires finance, infrastructure, or transaction expertise. Do not describe Early Advisory as owned by AIH or Jonathan Early as an AIH owner/employee unless that relationship is formally established.
+AIH may assemble specialist finance, infrastructure, transaction, and operating expertise inside larger project teams when the scope requires it.
 
 ## Business Growth + Acquisition Strategy
 AIH can help owners improve and systemize businesses, help buyers assess businesses, and evaluate select operator-led acquisition or strategic partnership opportunities.
