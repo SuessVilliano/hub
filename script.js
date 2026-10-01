@@ -209,22 +209,56 @@
   if(HL.projectFormUrl)replaceWithHighLevelForm('#leadForm',HL.projectFormUrl,'Applied Innovations Hub project intake');
   if(HL.interestFormUrl)replaceWithHighLevelForm('#interestForm',HL.interestFormUrl,'Applied Innovations Hub interest form');
 
-  $('#interestForm')?.addEventListener('submit',e=>{
+  const submitLead=async(kind,data)=>{
+    const response=await fetch('/api/highlevel-lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({...data,kind})
+    });
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok||!result.ok)throw new Error(result.error||'Unable to save your information');
+    return result;
+  };
+
+  $('#interestForm')?.addEventListener('submit',async e=>{
     e.preventDefault();
-    const data=Object.fromEntries(new FormData(e.currentTarget).entries());
-    saveLocalLead('interest',data);
-    closeModal(interestModal);
-    e.currentTarget.reset();
-    openCalendar();
+    const form=e.currentTarget;
+    const button=form.querySelector('button[type="submit"]');
+    const data=Object.fromEntries(new FormData(form).entries());
+    if(button){button.disabled=true;button.textContent='Saving…'}
+    try{
+      await submitLead('interest',data);
+      saveLocalLead('interest',data);
+      closeModal(interestModal);
+      form.reset();
+      openCalendar();
+    }catch(error){
+      const small=form.querySelector('small');
+      if(small)small.textContent=error.message+' — please use the scheduler or call 302-402-3752.';
+    }finally{
+      if(button){button.disabled=false;button.innerHTML='Save Interest + Schedule <span>→</span>'}
+    }
   });
 
-  $('#leadForm')?.addEventListener('submit',e=>{
+  $('#leadForm')?.addEventListener('submit',async e=>{
     e.preventDefault();
-    const data=Object.fromEntries(new FormData(e.currentTarget).entries());
-    saveLocalLead('project',data);
+    const form=e.currentTarget;
+    const button=form.querySelector('button[type="submit"]');
+    const data=Object.fromEntries(new FormData(form).entries());
     const status=$('#formStatus');
-    if(status)status.textContent='Project intake captured in this browser. Opening scheduling…';
-    setTimeout(openCalendar,350);
+    if(button){button.disabled=true;button.textContent='Sending to AIH…'}
+    if(status)status.textContent='Saving your project to the AIH system…';
+    try{
+      const result=await submitLead('project',data);
+      saveLocalLead('project',data);
+      if(status)status.textContent='Received. Your project is now in the AIH system. Opening scheduling…';
+      form.reset();
+      setTimeout(openCalendar,500);
+    }catch(error){
+      if(status)status.textContent=error.message+' — you can still call 302-402-3752.';
+    }finally{
+      if(button){button.disabled=false;button.innerHTML='Send Project + Continue <span>→</span>'}
+    }
   });
 
   // AIH Assistant
@@ -249,8 +283,8 @@
     {keys:['facility','location','bear','delaware','warehouse','hub','open yet','address'],text:'AIH is planning a Delaware physical hub with a quiet front execution/client room plus open industrial space for fulfillment, R&D, logistics, training, staging, and special projects. The facility is still in the planning stage, so the website does not present occupancy as finalized.'},
     {keys:['price','pricing','cost','how much','rate'],text:'Pricing depends on scope because AIH can deliver one-day implementations, recurring managed systems, fulfillment operations, R&D projects, logistics support, or team programs. The fastest way to price it correctly is a short strategy call.'},
     {keys:['partner','invest','founding','member','membership','join'],text:'Founding Access is for early customers, collaborators, brands, operators, vendors, and community partners who want first access to programs, pilots, workshops, fulfillment, and beta technology. I can open the founding-access form or schedule a conversation.'},
-    {keys:['trade hybrid','tradehybrid'],text:'Trade Hybrid is one of the team’s proof projects: a connected trading ecosystem spanning alerts, journaling, market intelligence, dashboards, automation, trader operations, and community experiences. It demonstrates the kind of multi-system product architecture AIH can build.'},
-    {keys:['elevate','wearable'],text:'Elevate is an applied wearable R&D concept exploring movement, location, wellness, connected sensing, interchangeable hardware, and everyday human performance. It is an example of AIH moving beyond software into product and hardware experimentation.'},
+    {keys:['trade hybrid','tradehybrid','trade hybrid club'],text:'Trade Hybrid Club is one of the team’s proof projects: a connected trading ecosystem spanning market tools, journaling, intelligence, community, member experiences, automation, and trader operations. It demonstrates the kind of multi-system product architecture AIH can build.'},
+    {keys:['project vector','wearable','connected wearable'],text:'Project Vector is the working R&D codename for a connected wearable concept exploring movement, location, wellness, sensing, interchangeable hardware, and everyday human performance. It demonstrates AIH moving beyond software into applied product experimentation.'},
     {keys:['autobid','auto bid'],text:'AutoBid is an AI-assisted opportunity intelligence platform designed to find procurement opportunities, match capabilities, identify teaming paths, and organize response strategy. It reflects AIH’s GovTech and opportunity-research capability.'},
     {keys:['certified','highlevel admin','high level admin','chapter'],text:'AIH team members are HighLevel Certified Admins. A Delaware HighLevel Local Chapter is planned and is presented as Coming Soon while the local program is finalized.'},
     {keys:['missed call','missed-call','missed calls'],text:'The Missed-Call Rescue system is designed to immediately text back unanswered callers, continue the conversation, qualify the lead, offer scheduling, and create a CRM opportunity so the lead does not disappear.'},
