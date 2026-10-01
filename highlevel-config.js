@@ -1,11 +1,9 @@
 // Applied Innovations Hub — HighLevel production integration
-// Fill these values from the AIH HighLevel sub-account. The website will
-// automatically use them without needing to rewrite the UI.
 window.AIH_HIGHLEVEL = {
-  bookingUrl: "https://speakwith.us/jamaurjohnson",
+  bookingUrl: "https://api.leadconnectorhq.com/widget/booking/fXIMmcl2IcRjvFLvsRsN",
   locationId: "",
   chatWidgetId: "",
-  projectWebhook: "",
-  interestWebhook: "",
+  projectFormUrl: "",
+  interestFormUrl: "",
   useNativeChat: false
 };
