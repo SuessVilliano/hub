@@ -258,7 +258,7 @@ async function ensureWorkflowDrafts(){
 }
 
 module.exports=async function handler(req,res){
-  if(req.method!=="POST") return res.status(405).json({ok:false,error:"POST required"});
+  if(req.method!=="POST" && req.method!=="GET") return res.status(405).json({ok:false,error:"Unsupported method"});
   if(!token()||!loc()) return res.status(500).json({ok:false,error:"HighLevel env vars missing"});
 
   const results={};
