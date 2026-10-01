@@ -1,1 +1,4 @@
-User-agent: *\nAllow: /\n\n# Add the final production sitemap URL here after the permanent domain is connected.\n
+User-agent: *
+Allow: /
+
+Sitemap: https://appliedinnovationshub.com/sitemap.xml
