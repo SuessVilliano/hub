@@ -43,7 +43,7 @@
   mountNativeHighLevelChat();
 
   // Client Portal links only appear when the exact portal URL is configured.
-  $('[data-client-portal]').forEach(link=>{
+  document.querySelectorAll('[data-client-portal]').forEach(link=>{
     if(!CLIENT_PORTAL_URL){ link.hidden=true; return; }
     link.hidden=false; link.href=CLIENT_PORTAL_URL; link.target='_blank'; link.rel='noopener';
   });
@@ -97,8 +97,8 @@
 
 
   // Scroll-linked depth: the site subtly changes perspective as the visitor moves.
-  const depthEls=$('[data-depth]');
-  const perspectiveSections=$('.perspective-section,.project-card,.outcome-card,.solution-card');
+  const depthEls=[...document.querySelectorAll('[data-depth]')];
+  const perspectiveSections=[...document.querySelectorAll('.perspective-section,.project-card,.outcome-card,.solution-card')];
   let depthRaf=0;
   const updateDepth=()=>{
     depthRaf=0;
