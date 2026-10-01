@@ -1,0 +1,17 @@
+{
+  "name": "Applied Innovations Hub",
+  "short_name": "AIH",
+  "description": "Research. Build. Deploy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060910",
+  "theme_color": "#070b12",
+  "icons": [
+    {
+      "src": "/assets/aih-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
