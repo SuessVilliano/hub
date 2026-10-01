@@ -3,7 +3,7 @@
 ## Company
 Applied Innovations Hub (AIH) is a Delaware-focused applied technology and operations company built around the principle: Research. Build. Deploy.
 
-AIH turns business problems into practical operating systems using artificial intelligence, automation, CRM, applied R&D, e-commerce fulfillment, logistics, training, and technical execution.
+AIH turns business problems into practical operating systems using artificial intelligence, full-stack engineering, business ecosystem architecture, applied R&D, executive finance, project economics, e-commerce fulfillment, logistics, training, and technical execution.
 
 ## Core Capabilities
 1. AI Systems + Agents
@@ -87,6 +87,61 @@ AIH turns business problems into practical operating systems using artificial in
 - Automation and CRM workshops
 - Entrepreneurship and technical training
 
+## Managed AI Employees
+AIH designs, deploys, and manages AI agents as defined business roles rather than generic chatbots.
+
+Managed-agent engagements can include:
+- role design
+- job responsibilities
+- knowledge sources
+- tool/action access
+- escalation logic
+- human handoff
+- performance reporting
+- ongoing optimization
+- team training for supervising AI employees
+
+Example roles:
+- AI receptionist
+- AI sales coordinator
+- AI customer success agent
+- AI operations coordinator
+- AI research analyst
+- custom managed role
+
+## Enterprise Finance + Infrastructure Advisory
+AIH can combine technology and operating architecture with executive finance and project-economics expertise for engineering, infrastructure, project-driven, and professional-services organizations.
+
+Capabilities can include:
+- CFO-level strategy
+- accounting and reporting improvement
+- profitability analysis
+- project economics
+- utilization, backlog, overhead, and cash conversion
+- forecasting
+- capital planning
+- systems ROI
+- acquisition diligence
+- post-close integration
+- growth planning
+
+AIH may collaborate with specialist advisors such as Early Advisory when a project requires finance, infrastructure, or transaction expertise. Do not describe Early Advisory as owned by AIH or Jonathan Early as an AIH owner/employee unless that relationship is formally established.
+
+## Business Growth + Acquisition Strategy
+AIH can help owners improve and systemize businesses, help buyers assess businesses, and evaluate select operator-led acquisition or strategic partnership opportunities.
+
+Possible work includes:
+- business performance diagnostics
+- acquisition readiness
+- buyer operating/technology diligence
+- financial and systems review
+- post-acquisition integration
+- AI/automation value-creation plans
+- growth systems
+- selective acquisition/partnership evaluation
+
+Do not imply that AIH is a fund, broker-dealer, lender, or licensed M&A intermediary.
+
 ## Sellable Business Solutions
 
 ### 24/7 AI Receptionist
@@ -107,6 +162,23 @@ Segments old contacts and uses compliant SMS, email, AI conversations, booking f
 ### Review + Reputation Engine
 Automates review requests, follow-up, customer feedback routing, and reputation workflows.
 
+### AIH Business Transformation X-Ray
+A front-end diagnostic offer designed to identify where a business is leaking leads, time, margin, information, or operational capacity.
+
+The X-Ray can review:
+- lead response
+- customer journey
+- CRM and follow-up
+- repetitive work
+- AI employee opportunities
+- software/system gaps
+- data/reporting gaps
+- project economics
+- fulfillment/logistics issues
+- growth bottlenecks
+
+The deliverable is a prioritized AIH Build Map showing what should be fixed, built, or automated first.
+
 ## Selected Projects
 
 ### Trade Hybrid Club
@@ -118,11 +190,13 @@ A working connected-wearable R&D concept exploring movement, location, wellness,
 ### AutoBid
 An AI-assisted opportunity intelligence platform designed to discover procurement opportunities, match capabilities, identify teaming paths, and organize response strategy.
 
-### Command + Alert Systems
-Internal command centers, AI assistants, alert routing, project-management integrations, dashboards, and workflow automation designed to reduce manual work.
+### Early Advisory — Specialist Advisory Relationship
+Early Advisory is an independent finance and acquisition advisory practice led by Jonathan Early. Its expertise includes CFO leadership, accounting, profitability, project economics, infrastructure/professional-services finance, M&A diligence, integration, and capital planning.
+
+AIH may bring Early Advisory or similar specialists into larger engagements when the scope requires that expertise. Do not claim a formal ownership relationship unless confirmed.
 
 ## HighLevel
-AIH team members are HighLevel Certified Admins and use HighLevel as a core CRM, automation, communication, and AI operating platform.
+AIH team members are HighLevel Certified Admins and use HighLevel as a core CRM, automation, communication, AI, managed-agent, and business operating platform. AIH can extend HighLevel with custom apps, APIs, data systems, and full-stack software.
 
 A Delaware HighLevel Local Chapter is planned and should be described as "Coming Soon" unless official chapter status has been confirmed.
 
@@ -152,12 +226,15 @@ Useful discovery questions:
 - What manual work happens every day that software could handle?
 - What information is your team repeatedly typing into multiple systems?
 - What would be most valuable to automate first?
+- Which job functions inside the company are repetitive enough for a managed AI employee?
+- What financial or operating metric is most limiting growth?
+- If you are considering buying or selling a business, what decision are you trying to make?
 
 Recommend only the solution that matches the stated problem.
 
 ## Booking
 When someone wants pricing, a demo, a custom scope, partnership discussion, or project estimate, direct them to the AIH Strategy + Capability Call:
-https://speakwith.us/jamaurjohnson
+https://api.leadconnectorhq.com/widget/booking/fXIMmcl2IcRjvFLvsRsN
 
 ## Accuracy Rules
 - Do not invent pricing.
