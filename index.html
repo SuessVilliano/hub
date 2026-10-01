@@ -1,159 +1,509 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Applied Innovations Hub is an applied technology, automation, logistics, and R&D company focused on building practical systems for businesses, commerce, and public-sector partners."/>
-<title>Applied Innovations Hub | Research. Build. Deploy.</title>
-<link rel="icon" href="/assets/aih-mark.svg" type="image/svg+xml"/>
-<link rel="stylesheet" href="/styles.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070b12">
+  <meta name="color-scheme" content="dark light">
+  <title>Applied Innovations Hub | AI, R&D, Fulfillment & Logistics in Delaware</title>
+  <meta name="description" content="Applied Innovations Hub is a Delaware-focused applied technology company building AI automation, business systems, R&D prototypes, e-commerce fulfillment, logistics workflows, workforce programs, and commercial/public-sector solutions.">
+  <meta name="keywords" content="Applied Innovations Hub, AI automation Delaware, research and development Delaware, R&D Delaware, business automation Delaware, e-commerce fulfillment Delaware, Amazon FBA prep Delaware, logistics Delaware, last mile delivery Delaware, government subcontractor Delaware, business systems Delaware, AI workshops Delaware, New Castle County technology, Bear Delaware innovation hub">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Applied Innovations Hub | Research. Build. Deploy.">
+  <meta property="og:description" content="Applied technology, AI automation, commerce, fulfillment, logistics and R&D—built to operate in the real world.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Applied Innovations Hub">
+  <meta name="twitter:description" content="Research. Build. Deploy.">
+  <link rel="icon" href="/assets/aih-mark.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"#organization",
+        "name":"Applied Innovations Hub",
+        "alternateName":"AIH",
+        "description":"Applied technology, artificial intelligence, automation, research and development, commerce, fulfillment and logistics company.",
+        "areaServed":[
+          {"@type":"State","name":"Delaware"},
+          {"@type":"AdministrativeArea","name":"New Castle County"},
+          {"@type":"Place","name":"Mid-Atlantic United States"}
+        ],
+        "knowsAbout":["Artificial Intelligence","Business Automation","Research and Development","E-commerce Fulfillment","Amazon FBA Preparation","Logistics","Last-Mile Delivery","Business Systems","Workforce Training"]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"#website",
+        "name":"Applied Innovations Hub",
+        "publisher":{"@id":"#organization"}
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"What does Applied Innovations Hub do?","acceptedAnswer":{"@type":"Answer","text":"AIH develops practical systems across AI automation, business infrastructure, applied R&D, fulfillment, logistics, training, and commercial or public-sector support."}},
+          {"@type":"Question","name":"Can AIH help a business automate operations?","acceptedAnswer":{"@type":"Answer","text":"Yes. AIH designs CRM, AI agent, lead capture, follow-up, booking, payment, customer communication, reporting, and workflow automation systems."}},
+          {"@type":"Question","name":"Does AIH support e-commerce and Amazon FBA operations?","acceptedAnswer":{"@type":"Answer","text":"AIH is developing fulfillment capabilities for inventory intake, prep, kitting, pick-and-pack, returns, FBA support, shipment staging, and related workflows."}},
+          {"@type":"Question","name":"Can prime contractors work with AIH?","acceptedAnswer":{"@type":"Answer","text":"AIH is building capacity to support prime contractors and organizations through technology, logistics, fulfillment, sourcing, operational systems, and subcontract execution."}}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-<header class="nav-wrap">
-  <nav class="nav">
-    <a class="brand" href="#top" aria-label="Applied Innovations Hub home">
-      <img src="/assets/aih-mark.svg" alt="" class="mark"/>
-      <span><b>APPLIED INNOVATIONS</b><em>HUB</em></span>
-    </a>
-    <button class="menu" id="menu" aria-label="Open menu">☰</button>
-    <div class="links" id="links">
-      <a href="#capabilities">Capabilities</a>
-      <a href="#facility">Facility</a>
-      <a href="#government">Government</a>
-      <a href="#programs">Programs</a>
-      <a href="#contact" class="pill small">Start a Project</a>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark"><span>A</span><span>I</span><span>H</span></div>
+    <div class="loader-line"><i></i></div>
+    <p>INITIALIZING THE HUB</p>
+  </div>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="nav-wrap" id="siteHeader">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Applied Innovations Hub home">
+        <img src="/assets/aih-mark.svg" alt="" class="mark">
+        <span><b>APPLIED INNOVATIONS</b><em>HUB</em></span>
+      </a>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">
+          <span class="theme-icon sun">☀</span><span class="theme-icon moon">◐</span>
+        </button>
+        <button class="menu" id="menu" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+
+      <div class="links" id="links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#facility">The Hub</a>
+        <a href="#events">Events</a>
+        <a href="#government">Government</a>
+        <a href="#faq">FAQ</a>
+        <button class="link-button" data-open-calendar>Book</button>
+        <a href="#contact" class="pill small">Start a Project</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="hero-beam beam-one" aria-hidden="true"></div>
+      <div class="hero-beam beam-two" aria-hidden="true"></div>
+
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse-dot"></span> DELAWARE · APPLIED TECHNOLOGY · OPERATIONS</div>
+        <h1>Ideas are cheap.<br><span>Execution is rare.</span></h1>
+        <p>Applied Innovations Hub turns real problems into working infrastructure—combining applied research, artificial intelligence, automation, commerce, fulfillment, logistics, and technical execution.</p>
+
+        <div class="actions">
+          <a class="pill magnetic" href="#contact">Build With AIH <span>→</span></a>
+          <button class="ghost magnetic" data-open-calendar>Schedule a Strategy Call <span>↗</span></button>
+        </div>
+
+        <div class="hero-metrics">
+          <div><strong data-count="6">0</strong><span>Execution pillars</span></div>
+          <div><strong>R&D</strong><span>Prototype + validate</span></div>
+          <div><strong>AI</strong><span>Automate + operate</span></div>
+          <div><strong>OPS</strong><span>Fulfill + deploy</span></div>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal delay-1" aria-label="Applied Innovations Hub operating model">
+        <div class="orb" aria-hidden="true"></div>
+        <div class="orbit orbit-a" aria-hidden="true"></div>
+        <div class="orbit orbit-b" aria-hidden="true"></div>
+        <div class="panel-card glass tilt-card">
+          <span class="signal">● LIVE BUILD ENVIRONMENT</span>
+          <h2>Innovation that leaves the whiteboard.</h2>
+          <p>Research <b>→</b> Build <b>→</b> Test <b>→</b> Deploy <b>→</b> Scale</p>
+          <div class="micro-grid">
+            <span>AI SYSTEMS</span><span>FULFILLMENT</span><span>R&D</span><span>LOGISTICS</span>
+          </div>
+          <div class="scan"></div>
+        </div>
+      </div>
+
+      <a href="#statement" class="scroll-cue" aria-label="Scroll to next section"><span></span>SCROLL</a>
+    </section>
+
+    <section class="ticker" aria-label="Services">
+      <div class="ticker-track">
+        <span>AI AUTOMATION</span><i>✦</i><span>APPLIED R&D</span><i>✦</i><span>FULFILLMENT</span><i>✦</i><span>LOGISTICS</span><i>✦</i><span>BUSINESS SYSTEMS</span><i>✦</i><span>TRAINING</span><i>✦</i><span>SUBCONTRACT SUPPORT</span><i>✦</i>
+        <span>AI AUTOMATION</span><i>✦</i><span>APPLIED R&D</span><i>✦</i><span>FULFILLMENT</span><i>✦</i><span>LOGISTICS</span><i>✦</i><span>BUSINESS SYSTEMS</span><i>✦</i><span>TRAINING</span><i>✦</i><span>SUBCONTRACT SUPPORT</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="statement reveal" id="statement">
+      <div class="eyebrow">THE THESIS</div>
+      <h2>We do not sell “innovation.”<br><span>We make it operational.</span></h2>
+      <p>AIH is being designed as a modular execution company. We can study the problem, design the system, build the technology, stand up the workflow, move the product, support the customer, train the team, and help deploy the solution in the real world.</p>
+      <div class="process-line" aria-label="Research to scale process">
+        <div><b>01</b><span>Research</span></div><i></i>
+        <div><b>02</b><span>Design</span></div><i></i>
+        <div><b>03</b><span>Build</span></div><i></i>
+        <div><b>04</b><span>Deploy</span></div><i></i>
+        <div><b>05</b><span>Scale</span></div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">CAPABILITIES</div><h2>Built to execute.</h2></div>
+        <p>Commercial services that can earn now, with infrastructure designed to mature into enterprise, institutional, prime-contractor, and public-sector capability.</p>
+      </div>
+
+      <div class="cards capability-grid">
+        <article class="cap-card reveal tilt-card" data-capability="ai">
+          <span class="card-num">01</span><div class="card-icon">AI</div>
+          <h3>AI + Business Systems</h3>
+          <p>CRM, AI agents, websites, lead capture, booking, customer workflows, payments, communications, reporting, and operational automation.</p>
+          <b>Systems that turn manual work into infrastructure.</b>
+          <button class="card-link" data-chat-question="How can AIH automate my business?">Explore <span>↗</span></button>
+        </article>
+
+        <article class="cap-card reveal delay-1 tilt-card" data-capability="rnd">
+          <span class="card-num">02</span><div class="card-icon">R&D</div>
+          <h3>Applied Research + Development</h3>
+          <p>Applied AI, fintech tooling, workflow experiments, automation prototypes, data systems, hardware concepts, and proof-of-concept development.</p>
+          <b>From problem statement to working prototype.</b>
+          <button class="card-link" data-chat-question="What kind of R&D projects can AIH work on?">Explore <span>↗</span></button>
+        </article>
+
+        <article class="cap-card reveal delay-2 tilt-card" data-capability="fulfillment">
+          <span class="card-num">03</span><div class="card-icon">BOX</div>
+          <h3>Commerce + Fulfillment</h3>
+          <p>Inventory intake, e-commerce prep, pick-and-pack, kitting, returns, Amazon FBA support, product staging, and shipment workflows.</p>
+          <b>A physical backend for digital businesses.</b>
+          <button class="card-link" data-chat-question="Tell me about fulfillment and Amazon FBA support.">Explore <span>↗</span></button>
+        </article>
+
+        <article class="cap-card reveal tilt-card" data-capability="logistics">
+          <span class="card-num">04</span><div class="card-icon">MOVE</div>
+          <h3>Logistics + Last Mile</h3>
+          <p>Route operations, local delivery coordination, B2B transfers, proof-of-delivery workflows, dispatch systems, and logistics technology.</p>
+          <b>Movement powered by better systems.</b>
+          <button class="card-link" data-chat-question="How could AIH help with last-mile delivery or logistics?">Explore <span>↗</span></button>
+        </article>
+
+        <article class="cap-card reveal delay-1 tilt-card" data-capability="government">
+          <span class="card-num">05</span><div class="card-icon">GOV</div>
+          <h3>Commercial + Public-Sector Solutions</h3>
+          <p>Subcontract support, technology implementation, fulfillment, operational systems, logistics coordination, sourcing, and opportunity response.</p>
+          <b>Built to partner, perform, and document.</b>
+          <button class="card-link" data-chat-question="Can AIH subcontract with a prime contractor?">Explore <span>↗</span></button>
+        </article>
+
+        <article class="cap-card reveal delay-2 tilt-card" data-capability="training">
+          <span class="card-num">06</span><div class="card-icon">LAB</div>
+          <h3>Training + Workforce Programs</h3>
+          <p>AI workshops, business systems training, automation boot camps, technical education, entrepreneurship, and hands-on implementation sessions.</p>
+          <b>Learn it. Build it. Use it.</b>
+          <button class="card-link" data-chat-question="What workshops and training does AIH plan to offer?">Explore <span>↗</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section id="facility" class="facility section">
+      <div class="facility-copy reveal">
+        <div class="eyebrow">THE PHYSICAL HUB</div>
+        <h2>The space is part of the operating system.</h2>
+        <p>Our planned Delaware hub is being designed around flow, focus, and revenue-generating utility—not decorative “lab” rooms that sit unused.</p>
+
+        <div class="flow-tabs" role="tablist" aria-label="Facility zones">
+          <button class="flow-tab active" data-zone="execution">Execution Room</button>
+          <button class="flow-tab" data-zone="fulfillment">Fulfillment</button>
+          <button class="flow-tab" data-zone="rnd">R&D Wall</button>
+          <button class="flow-tab" data-zone="flex">Flex Floor</button>
+        </div>
+
+        <div class="flow-copy" id="flowCopy">
+          <h3>Quiet execution + client mode</h3>
+          <p>The front office can operate as a focused trading/execution room with clustered workstations, while switching into a reception, meeting, sales, and client-consultation environment when needed.</p>
+        </div>
+      </div>
+
+      <div class="blueprint reveal delay-1" aria-label="Concept facility layout">
+        <div class="bp-tag">CONCEPT FLOW · NOT FINAL CONSTRUCTION DRAWING</div>
+        <div class="bp-room office" data-bp="execution">QUIET EXECUTION<br>+ CLIENT ROOM</div>
+        <div class="bp-room bath">RESTROOM</div>
+        <div class="bp-room floor" data-bp="flex">FLEX OPERATIONS FLOOR</div>
+        <div class="bp-wall left" data-bp="fulfillment">FULFILLMENT / FBA / STORAGE</div>
+        <div class="bp-wall right" data-bp="rnd">R&D / TECH / WORKBENCH</div>
+        <div class="bp-garage">DRIVE-IN / STAGING</div>
+        <div class="bp-route"></div>
+      </div>
+    </section>
+
+    <section class="revenue section">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">REVENUE FROM DAY ONE</div><h2>The Hub should pay for itself.</h2></div>
+        <p>Instead of waiting for one big contract, AIH is structured to combine recurring services, implementation revenue, physical operations, programs, and longer-cycle contracting.</p>
+      </div>
+
+      <div class="revenue-stack reveal">
+        <button class="stack-row active" data-stack="now"><span>NOW</span><b>AI systems · Build Days · fulfillment · workshops</b><em>Immediate commercial revenue</em></button>
+        <button class="stack-row" data-stack="next"><span>NEXT</span><b>Managed operations · logistics routes · recurring storage</b><em>Repeatable monthly revenue</em></button>
+        <button class="stack-row" data-stack="later"><span>SCALE</span><b>Prime/subcontract work · R&D funding · larger programs</b><em>Longer-cycle institutional revenue</em></button>
+      </div>
+
+      <div class="revenue-detail" id="revenueDetail">
+        <strong>Start with what can be delivered immediately.</strong>
+        <p>AI/business infrastructure builds, implementation days, small-brand fulfillment, FBA prep, workshops, and project-based technical services can begin before larger procurement cycles mature.</p>
+      </div>
+    </section>
+
+    <section id="events" class="events section">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">PROGRAMMING</div><h2>Events that create customers.</h2></div>
+        <p>The programming is designed to teach, demonstrate, build community, and turn real problems into paid implementation work.</p>
+      </div>
+
+      <div class="event-grid">
+        <article class="event-card reveal">
+          <div class="event-top"><span>WEEKEND SERIES</span><i>01</i></div>
+          <h3>AI Build Sunday</h3>
+          <p>Hands-on sessions where founders and operators bring one repetitive business problem and leave with a working automation plan or prototype.</p>
+          <div class="event-tags"><span>AI</span><span>Automation</span><span>CRM</span></div>
+          <button class="ghost event-interest" data-event="AI Build Sunday">Join Interest List →</button>
+        </article>
+
+        <article class="event-card reveal delay-1">
+          <div class="event-top"><span>FOUNDER CLINIC</span><i>02</i></div>
+          <h3>Business Systems Lab</h3>
+          <p>A live operating-room format for websites, funnels, lead routing, follow-up, review systems, booking, payment flow, and customer experience.</p>
+          <div class="event-tags"><span>Systems</span><span>Sales</span><span>Ops</span></div>
+          <button class="ghost event-interest" data-event="Business Systems Lab">Join Interest List →</button>
+        </article>
+
+        <article class="event-card reveal delay-2">
+          <div class="event-top"><span>OPERATIONS DAY</span><i>03</i></div>
+          <h3>E-commerce Ops Lab</h3>
+          <p>Practical fulfillment, Amazon FBA prep, shipping, inventory control, packaging, returns, and small-brand operations demonstrations.</p>
+          <div class="event-tags"><span>FBA</span><span>Fulfillment</span><span>Commerce</span></div>
+          <button class="ghost event-interest" data-event="E-commerce Ops Lab">Join Interest List →</button>
+        </article>
+
+        <article class="event-card reveal">
+          <div class="event-top"><span>MARKET SESSION</span><i>04</i></div>
+          <h3>Trade House Sessions</h3>
+          <p>Focused market-analysis and execution sessions demonstrating structured process, technology, analytics, journaling, and disciplined operating environments.</p>
+          <div class="event-tags"><span>Markets</span><span>Analytics</span><span>Process</span></div>
+          <button class="ghost event-interest" data-event="Trade House Sessions">Join Interest List →</button>
+        </article>
+
+        <article class="event-card reveal delay-1">
+          <div class="event-top"><span>PROCUREMENT LAB</span><i>05</i></div>
+          <h3>Contract Opportunity Lab</h3>
+          <p>Small businesses learn how to understand solicitations, capabilities, teaming, subcontracting, compliance, and opportunity qualification.</p>
+          <div class="event-tags"><span>Contracts</span><span>Teaming</span><span>Capability</span></div>
+          <button class="ghost event-interest" data-event="Contract Opportunity Lab">Join Interest List →</button>
+        </article>
+
+        <article class="event-card reveal delay-2 founder-card">
+          <div class="event-top"><span>FOUNDING ACCESS</span><i>∞</i></div>
+          <h3>Become an Early Hub Member</h3>
+          <p>Get first access to workshops, build days, workspace programming, service pilots, fulfillment pilots, and founding-community opportunities.</p>
+          <div class="event-tags"><span>Priority</span><span>Early Access</span><span>Community</span></div>
+          <button class="pill event-interest" data-event="Founding Access">Request Founding Access</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="government" class="gov section">
+      <div class="gov-grid">
+        <div class="reveal">
+          <div class="eyebrow">COMMERCIAL + PUBLIC SECTOR</div>
+          <h2>Built to become a dependable execution partner.</h2>
+          <p>AIH is developing the operating capacity to support prime contractors, institutions, agencies, and commercial organizations across technology, logistics, fulfillment, business systems, and applied research.</p>
+          <div class="gov-actions">
+            <button class="pill magnetic" data-chat-question="I am a prime contractor. How can AIH support us?">Discuss Teaming</button>
+            <a class="ghost light" href="#contact">Request Capability Information →</a>
+          </div>
+        </div>
+
+        <div class="gov-console reveal delay-1">
+          <div class="console-head"><span>AIH / PARTNER READINESS</span><i>DEVELOPING</i></div>
+          <div class="console-row"><span>TECHNOLOGY + AUTOMATION</span><b>READY TO SCOPE</b></div>
+          <div class="console-row"><span>FULFILLMENT + KITTING</span><b>READY TO SCOPE</b></div>
+          <div class="console-row"><span>LOGISTICS COORDINATION</span><b>READY TO SCOPE</b></div>
+          <div class="console-row"><span>R&D / PROTOTYPING</span><b>READY TO SCOPE</b></div>
+          <div class="console-row muted"><span>FORMAL REGISTRATIONS / CERTS</span><b>VERIFY BEFORE USE</b></div>
+          <p>We will only publish registration numbers, certifications, insurance levels, or contract qualifications after they are active and verified.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="founding section">
+      <div class="founding-shell reveal">
+        <div>
+          <div class="eyebrow">FOUNDING ACCESS</div>
+          <h2>Help build the first version of the Hub.</h2>
+          <p>Early customers, brands, operators, founders, collaborators, and community partners can join the first cohort of AIH pilots and programs.</p>
+        </div>
+        <div class="founding-benefits">
+          <span>Priority Build-Day Access</span>
+          <span>Founding Workshop Invitations</span>
+          <span>Early Fulfillment Pilot Access</span>
+          <span>Partner + Vendor Opportunities</span>
+          <span>New Technology Beta Access</span>
+        </div>
+        <button class="pill magnetic" data-open-founder>Request an Invitation</button>
+      </div>
+    </section>
+
+    <section id="faq" class="faq section">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">FAQ</div><h2>Ask better questions.</h2></div>
+        <p>Or open the AIH Assistant in the corner and ask directly.</p>
+      </div>
+      <div class="faq-list">
+        <details class="reveal"><summary>What exactly is Applied Innovations Hub?</summary><p>AIH is being built as an applied-technology and operating company—not a traditional coworking space. The model combines AI/business systems, R&D, fulfillment, logistics, training, and commercial/public-sector execution.</p></details>
+        <details class="reveal"><summary>Can I hire AIH to automate my business?</summary><p>Yes. Business infrastructure is one of the first commercial service lines: CRM setup, AI agents, lead capture, follow-up, booking, payments, reviews, customer communications, reporting, and automation.</p></details>
+        <details class="reveal"><summary>Can you handle Amazon FBA or e-commerce fulfillment?</summary><p>AIH is developing a micro-fulfillment model that can support inventory receiving, prep, packaging, kitting, returns, FBA workflows, and shipment staging. Capacity and final service levels will depend on the physical operating setup.</p></details>
+        <details class="reveal"><summary>Can AIH subcontract under a larger company?</summary><p>That is a core part of the longer-term model. AIH can scope technology, fulfillment, logistics, operational systems, sourcing, and project support opportunities while formal registrations and contract-specific requirements are completed.</p></details>
+        <details class="reveal"><summary>Is the Delaware facility already open?</summary><p>The hub is currently being planned and designed. The website intentionally separates current service capability from future facility-specific claims so the public information stays accurate.</p></details>
+      </div>
+    </section>
+
+    <section class="calendar-preview section reveal">
+      <div>
+        <div class="eyebrow">BOOK A CONVERSATION</div>
+        <h2>Tell us what you're trying to build.</h2>
+        <p>Use the scheduling experience to talk through automation, fulfillment, logistics, R&D, training, teaming, or a founding partnership.</p>
+      </div>
+      <button class="calendar-card magnetic" data-open-calendar>
+        <span class="calendar-date"><b>AIH</b><i>CALL</i></span>
+        <span><strong>Strategy + Capability Call</strong><small>Choose an available time</small></span>
+        <em>→</em>
+      </button>
+    </section>
+
+    <section class="cta section" id="contact">
+      <div class="reveal">
+        <div class="eyebrow">START HERE</div>
+        <h2>Bring us a problem worth solving.</h2>
+        <p>Tell us what you're trying to build, automate, fulfill, deliver, improve, or subcontract. The goal is to get to the fastest practical next step.</p>
+        <div class="contact-points">
+          <span>Delaware + Mid-Atlantic focus</span>
+          <span>Commercial + partner inquiries</span>
+          <span>Applied R&D + technical projects</span>
+        </div>
+      </div>
+
+      <form id="leadForm" class="reveal delay-1">
+        <div class="form-head"><span>PROJECT INTAKE</span><i>01 / 01</i></div>
+        <label><span>Name</span><input required name="name" autocomplete="name" placeholder="Your name"></label>
+        <label><span>Email</span><input required name="email" type="email" autocomplete="email" placeholder="you@company.com"></label>
+        <label><span>Company / Organization</span><input name="company" autocomplete="organization" placeholder="Optional"></label>
+        <label><span>What do you need?</span>
+          <select name="interest">
+            <option>AI + Business Systems</option>
+            <option>R&D / Prototyping</option>
+            <option>E-commerce / Fulfillment</option>
+            <option>Logistics / Delivery</option>
+            <option>Government / Subcontracting</option>
+            <option>Training / Workshops</option>
+            <option>Founding Access / Partnership</option>
+          </select>
+        </label>
+        <label><span>Project context</span><textarea name="message" rows="4" placeholder="What are you trying to accomplish?"></textarea></label>
+        <button class="pill" type="submit">Continue to Scheduling <span>→</span></button>
+        <small id="formStatus">Your details stay in this browser prototype; scheduling opens next.</small>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="brand footer-brand"><img src="/assets/aih-mark.svg" alt=""><span><b>APPLIED INNOVATIONS</b><em>HUB</em></span></div>
+      <p>Research. Build. Deploy.</p>
     </div>
-  </nav>
-</header>
-
-<main id="top">
-<section class="hero">
-  <div class="grid-bg"></div>
-  <div class="hero-copy">
-    <div class="eyebrow">APPLIED TECHNOLOGY · COMMERCE · LOGISTICS</div>
-    <h1>We build what<br/><span>comes next.</span></h1>
-    <p>Applied Innovations Hub turns ideas into operating systems—combining research, artificial intelligence, automation, commerce, fulfillment, logistics, and hands-on technical execution.</p>
-    <div class="actions">
-      <a class="pill" href="#contact">Build With AIH</a>
-      <a class="ghost" href="#capabilities">Explore Capabilities →</a>
+    <div class="footer-bottom">
+      <span>Delaware · United States</span>
+      <div><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      <span>© <span id="year"></span> Applied Innovations Hub</span>
     </div>
-    <div class="hero-metrics">
-      <div><strong>R&D</strong><span>Prototype + validate</span></div>
-      <div><strong>AI</strong><span>Automate + operate</span></div>
-      <div><strong>OPS</strong><span>Fulfill + deploy</span></div>
+  </footer>
+
+  <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open AIH Assistant">
+    <span class="chat-dot"></span>
+    <b>AIH</b>
+  </button>
+
+  <aside class="chat-widget" id="chatWidget" aria-hidden="true">
+    <div class="chat-head">
+      <div><span class="chat-avatar">AIH</span><div><b>AIH Assistant</b><small><i></i> Online</small></div></div>
+      <button id="chatClose" aria-label="Close assistant">×</button>
     </div>
-  </div>
-  <div class="hero-panel">
-    <div class="orb"></div>
-    <div class="panel-card">
-      <span class="signal">● LIVE BUILD ENVIRONMENT</span>
-      <h3>Innovation that leaves the whiteboard.</h3>
-      <p>Research → Build → Test → Deploy → Scale</p>
-      <div class="scan"></div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="msg bot"><p>Welcome to Applied Innovations Hub. Tell me what you're trying to build, automate, fulfill, deliver, or improve.</p></div>
+      <div class="quick-replies">
+        <button data-chat-question="What services do you offer?">Services</button>
+        <button data-chat-question="Tell me about fulfillment and Amazon FBA support.">Fulfillment</button>
+        <button data-chat-question="Can AIH subcontract with a prime contractor?">Government / Teaming</button>
+        <button data-open-calendar>Book a Call</button>
+      </div>
     </div>
-  </div>
-</section>
+    <form class="chat-form" id="chatForm">
+      <input id="chatInput" autocomplete="off" placeholder="Ask AIH anything…" aria-label="Message AIH Assistant">
+      <button type="submit" aria-label="Send message">↑</button>
+    </form>
+  </aside>
 
-<section class="statement">
-  <div class="eyebrow">THE HUB</div>
-  <h2>One company. Multiple execution engines.</h2>
-  <p>AIH is designed as a modular operating hub. We can research a problem, build the technology, stand up the workflow, fulfill the product, support the customer, and help deploy it in the real world.</p>
-</section>
-
-<section id="capabilities" class="section">
-  <div class="section-head">
-    <div><div class="eyebrow">CAPABILITIES</div><h2>Built to execute.</h2></div>
-    <p>Commercial services today. Scalable public-sector and enterprise capability tomorrow.</p>
-  </div>
-  <div class="cards">
-    <article><span>01</span><h3>AI + Business Systems</h3><p>CRM, AI agents, websites, lead capture, customer workflows, booking, payments, communications, and operational automation.</p><b>Systems that turn manual work into infrastructure.</b></article>
-    <article><span>02</span><h3>Research + Development</h3><p>Applied AI, fintech tooling, automation prototypes, data workflows, product concepts, hardware experimentation, and proof-of-concept development.</p><b>From problem statement to working prototype.</b></article>
-    <article><span>03</span><h3>Commerce + Fulfillment</h3><p>Inventory intake, e-commerce prep, pick-and-pack, kitting, returns, FBA support, local product staging, and shipment operations.</p><b>A physical backend for digital businesses.</b></article>
-    <article><span>04</span><h3>Logistics + Last Mile</h3><p>Route operations, local delivery coordination, B2B transfers, proof-of-delivery workflows, dispatch systems, and logistics technology.</p><b>Movement powered by better systems.</b></article>
-    <article><span>05</span><h3>Government + Commercial Solutions</h3><p>Subcontract support, fulfillment, technology implementation, administrative systems, logistics coordination, sourcing, and opportunity response support.</p><b>Built to partner, perform, and document.</b></article>
-    <article><span>06</span><h3>Training + Workforce Programs</h3><p>AI workshops, business systems training, automation boot camps, technical education, entrepreneurship, and hands-on implementation sessions.</p><b>Learn it. Build it. Use it.</b></article>
-  </div>
-</section>
-
-<section id="facility" class="facility section">
-  <div class="facility-copy">
-    <div class="eyebrow">PHYSICAL OPERATIONS</div>
-    <h2>The space is part of the system.</h2>
-    <p>Our planned Delaware innovation hub is being designed around real operating flow—not decoration. A quiet execution room supports focused trading, analysis, client work, and reception when needed. The open industrial floor supports fulfillment, R&D, logistics, training, content, equipment staging, and future technical buildouts.</p>
-    <ul>
-      <li><b>Execution Room:</b> focused workstation cluster + client/reception mode</li>
-      <li><b>Fulfillment Wall:</b> inventory, FBA, e-commerce prep, shipping</li>
-      <li><b>R&D Wall:</b> prototyping, testing, electronics, software/hardware work</li>
-      <li><b>Flexible Floor:</b> workshops, training, product staging, vehicle/detailing use</li>
-      <li><b>Operations Backbone:</b> dispatch, content, analytics, AutoBid, customer systems</li>
-    </ul>
-  </div>
-  <div class="blueprint">
-    <div class="bp-tag">CONCEPT LAYOUT</div>
-    <div class="bp-room office">QUIET EXECUTION<br/>+ CLIENT ROOM</div>
-    <div class="bp-room bath">RESTROOM</div>
-    <div class="bp-room floor">FLEX OPERATIONS FLOOR</div>
-    <div class="bp-wall left">FULFILLMENT / STORAGE</div>
-    <div class="bp-wall right">R&D / TECH</div>
-    <div class="bp-garage">DRIVE-IN</div>
-  </div>
-</section>
-
-<section id="government" class="gov section">
-  <div class="gov-inner">
-    <div>
-      <div class="eyebrow">PUBLIC + PRIVATE SECTOR</div>
-      <h2>Built to become a dependable execution partner.</h2>
-    </div>
-    <div>
-      <p>AIH is developing the operational capacity to support prime contractors, agencies, institutions, and commercial organizations across technology, logistics, fulfillment, business systems, and applied research.</p>
-      <p class="fine">Capabilities, registrations, certifications, insurance, and contract-specific requirements will be represented only when active and verified.</p>
-      <a class="ghost light" href="#contact">Request Capability Information →</a>
+  <div class="modal" id="calendarModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-shell calendar-shell" role="dialog" aria-modal="true" aria-labelledby="calendarTitle">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div class="modal-head">
+        <div class="eyebrow">SCHEDULE</div>
+        <h2 id="calendarTitle">Strategy + Capability Call</h2>
+        <p>Choose a time to discuss your project, partnership, or capability need.</p>
+      </div>
+      <div class="calendar-frame-wrap">
+        <iframe id="calendarFrame" title="Schedule a call" data-src="https://speakwith.us/jamaurjohnson" loading="lazy"></iframe>
+        <div class="calendar-fallback">
+          <p>If the scheduler does not display inside this window, open it directly.</p>
+          <a class="pill" href="https://speakwith.us/jamaurjohnson" target="_blank" rel="noopener">Open Scheduler ↗</a>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="programs" class="section">
-  <div class="section-head"><div><div class="eyebrow">PROGRAMS</div><h2>Ways to work with the Hub.</h2></div></div>
-  <div class="programs">
-    <div><h3>Build Day</h3><p>Bring us the business problem. We map and implement a working system.</p><span>Automation · CRM · AI · Operations</span></div>
-    <div><h3>Hub Fulfillment</h3><p>Flexible support for growing brands that need physical infrastructure.</p><span>Prep · Pack · Store · Ship</span></div>
-    <div><h3>Applied R&D</h3><p>Prototype new workflows, tools, products, and technical concepts.</p><span>Research · Test · Iterate · Validate</span></div>
-    <div><h3>Workshops</h3><p>Practical sessions for teams, founders, youth, and local operators.</p><span>AI · Business · Technology · Execution</span></div>
+  <div class="modal" id="interestModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-shell interest-shell" role="dialog" aria-modal="true" aria-labelledby="interestTitle">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div class="eyebrow">EARLY ACCESS</div>
+      <h2 id="interestTitle">Get on the first list.</h2>
+      <p id="interestCopy">Tell us which AIH program you want first access to.</p>
+      <form id="interestForm">
+        <input type="hidden" name="event" id="interestEvent" value="Founding Access">
+        <label><span>Name</span><input required name="name" placeholder="Your name"></label>
+        <label><span>Email</span><input required type="email" name="email" placeholder="you@company.com"></label>
+        <label><span>Company / Interest</span><input name="company" placeholder="Optional"></label>
+        <button class="pill" type="submit">Save Interest + Schedule <span>→</span></button>
+        <small>Your interest is saved locally in this prototype and scheduling opens next.</small>
+      </form>
+    </div>
   </div>
-</section>
 
-<section class="cta section" id="contact">
-  <div>
-    <div class="eyebrow">START HERE</div>
-    <h2>Bring us a problem worth solving.</h2>
-    <p>Tell us what you're trying to build, automate, fulfill, deliver, or improve. We'll determine the fastest path from idea to execution.</p>
+  <div class="exit-popup" id="exitPopup" aria-hidden="true">
+    <button class="exit-close" id="exitClose" aria-label="Close">×</button>
+    <div class="exit-kicker">BEFORE YOU GO</div>
+    <h2>Want first access to the Hub?</h2>
+    <p>Join the founding interest list for build days, workshops, fulfillment pilots, new technology tests, and partner opportunities.</p>
+    <div class="exit-actions">
+      <button class="pill" data-open-founder>Request Founding Access</button>
+      <button class="ghost" id="exitNoThanks">Not right now</button>
+    </div>
   </div>
-  <form id="leadForm">
-    <input required name="name" placeholder="Name"/>
-    <input required name="email" type="email" placeholder="Email"/>
-    <input name="company" placeholder="Company / Organization"/>
-    <select name="interest">
-      <option>AI + Business Systems</option>
-      <option>R&D / Prototyping</option>
-      <option>E-commerce / Fulfillment</option>
-      <option>Logistics / Delivery</option>
-      <option>Government / Subcontracting</option>
-      <option>Training / Workshops</option>
-      <option>Partnership / Investment</option>
-    </select>
-    <textarea name="message" rows="4" placeholder="What are you trying to accomplish?"></textarea>
-    <button class="pill" type="submit">Submit Project Request</button>
-    <small id="formStatus">Prototype form — CRM connection coming next.</small>
-  </form>
-</section>
-</main>
 
-<footer>
-  <div class="brand footer-brand"><img src="/assets/aih-mark.svg" alt=""/><span><b>APPLIED INNOVATIONS</b><em>HUB</em></span></div>
-  <p>Research. Build. Deploy.</p>
-  <p>Delaware · United States</p>
-  <p>© <span id="year"></span> Applied Innovations Hub. All rights reserved.</p>
-</footer>
-<script src="/script.js"></script>
-</body></html>
+  <script src="/script.js"></script>
+</body>
+</html>
