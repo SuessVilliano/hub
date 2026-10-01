@@ -104,7 +104,6 @@ async function ensureChatWidget(){
       successMsg:"Thanks — your message was received.",
       thankYouMsg:"Research. Build. Deploy.",
       showAgencyBranding:false,
-      widgetPlacement:"bottom-right",
       loadStrategy:"interaction",
       theme:{name:"blue"}
     }
@@ -114,10 +113,7 @@ async function ensureChatWidget(){
 }
 
 async function updateConversationAgent(){
-  const search=await api("/conversation-ai/agents/search?limit=50&query=AIH%20Concierge");
-  const agents=search.data?.agents||[];
-  const agent=agents.find(x=>(x.name||"").toLowerCase()==="aih concierge")||agents[0];
-  if(!agent) return {ok:false,error:"AIH Concierge not found"};
+  const agent={id:"K7cZMrwJFEBY9Ip9ytqN"};
 
   const fullPrompt=`You are AIH Concierge for Applied Innovations Hub. Start with the business outcome, not the tool. Your job is to understand the visitor's constraint, ask one useful question at a time, capture qualified context, recommend the smallest useful next step, and book an AIH Discovery Call when appropriate.
 
@@ -226,7 +222,7 @@ async function publishOperationsDirector(){
 }
 
 async function ensureWorkflowDrafts(){
-  const existing=await api("/workflows/?locationId="+encodeURIComponent(loc()));
+  const existing=await api("/v3/workflows/?locationId="+encodeURIComponent(loc()));
   const list=existing.data?.workflows||[];
   const specs=[
     ["AIH – New Inquiry Follow-Up","Hi {{contact.first_name}}, thanks for reaching out to Applied Innovations Hub. We received your inquiry. What outcome matters most right now — growth, operations, a product build, acquisition/integration, or something else?"],
@@ -251,7 +247,7 @@ async function ensureWorkflowDrafts(){
       folderName:"AIH Automations",
       createFolderIfMissing:true
     };
-    const r=await api("/workflows/?locationId="+encodeURIComponent(loc()),{method:"POST",body:def});
+    const r=await api("/v3/workflows/?locationId="+encodeURIComponent(loc()),{method:"POST",body:def});
     out.push(r.ok?{name,created:true,id:r.data?.workflowId,status:r.data?.status,warnings:r.data?.warnings}:{name,created:false,error:brief(r)});
   }
   return out;
