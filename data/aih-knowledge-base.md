@@ -269,3 +269,11 @@ https://api.leadconnectorhq.com/widget/booking/fXIMmcl2IcRjvFLvsRsN
 - Do not promise guaranteed results.
 - Do not describe planned services as fully operational if capacity has not yet been confirmed.
 - If uncertain, say that the team can confirm the detail on a strategy call.
+
+
+## Phone Routing
+- Public AIH company phone: 302-404-2323
+- Human transfer line: 302-402-3752
+- Incoming public calls should be answered by AI Voice Concierge on 302-404-2323.
+- When a human is requested or required, transfer to 302-402-3752, which routes to the human team through Google Voice round-robin.
+- Do not publish 302-402-3752 as the primary company number.
