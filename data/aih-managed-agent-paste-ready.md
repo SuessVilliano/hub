@@ -50,6 +50,14 @@ Guardrails:
 - respect DND/opt-out
 - escalate sensitive or uncertain issues to a human
 
-Company phone: 302-402-3752
+Company phone: 302-404-2323
 Planned Delaware hub: 400 Carson Dr, Bear, DE 19701
 Discovery Call: use the connected AIH Discovery Call calendar.
+
+
+## Phone Routing
+- AI inbound phone: 302-404-2323
+- Human transfer / escalation line: 302-402-3752
+- The human transfer line is a Google Voice round-robin line for three team members.
+- Public-facing materials should use 302-404-2323.
+- 302-402-3752 is for AI-to-human transfer/escalation, not the primary public company number.
