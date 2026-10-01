@@ -6,7 +6,7 @@ Applied Innovations Hub (AIH) is a Delaware-focused applied technology and opera
 AIH turns business problems into practical operating systems using artificial intelligence, automation, CRM, applied R&D, e-commerce fulfillment, logistics, training, and technical execution.
 
 ## Core Capabilities
-1. AI + Business Systems
+1. AI Systems + Agents
 - CRM implementation
 - AI reception and conversational agents
 - Lead capture and qualification
@@ -16,7 +16,26 @@ AIH turns business problems into practical operating systems using artificial in
 - Pipelines and opportunity management
 - Reporting and operational dashboards
 
-2. Applied Research + Development
+2. Full-Stack Product Engineering
+- Custom web apps
+- SaaS
+- Portals
+- Membership platforms
+- Dashboards
+- AI-powered products
+
+3. Ecosystem Architecture
+- CRM
+- Apps
+- Websites
+- APIs
+- Payments
+- Communications
+- Member access
+- Automation
+- Connected business infrastructure
+
+4. Applied Research + Development
 - AI workflow prototypes
 - Software and data tools
 - Fintech systems
@@ -25,7 +44,14 @@ AIH turns business problems into practical operating systems using artificial in
 - Proof-of-concept development
 - Technical validation and deployment planning
 
-3. Commerce + Fulfillment
+5. Data + Decision Systems
+- Dashboards
+- Scoring engines
+- Alerting
+- Research automation
+- Operational analytics
+
+6. Commerce + Fulfillment
 - Inventory intake
 - E-commerce prep
 - Amazon FBA workflow support
@@ -35,7 +61,7 @@ AIH turns business problems into practical operating systems using artificial in
 - Returns
 - Product staging and outbound shipment workflows
 
-4. Logistics + Last Mile
+7. Logistics + Last Mile
 - Local delivery coordination
 - B2B transfer workflows
 - Dispatch
@@ -44,7 +70,7 @@ AIH turns business problems into practical operating systems using artificial in
 - Customer notifications
 - Logistics technology and automation
 
-5. Commercial + Public-Sector Support
+8. Commercial + Public-Sector Support
 - Prime-contractor teaming
 - Subcontract execution
 - Technology implementation
@@ -52,7 +78,7 @@ AIH turns business problems into practical operating systems using artificial in
 - Operational systems
 - Sourcing and opportunity response
 
-6. Training + Workforce Programs
+9. Training + Workforce Programs
 - AI Build Sunday
 - Business Systems Lab
 - E-commerce Ops Lab
@@ -83,11 +109,11 @@ Automates review requests, follow-up, customer feedback routing, and reputation 
 
 ## Selected Projects
 
-### Trade Hybrid
-A connected trading ecosystem spanning alerts, journaling, market intelligence, trader operations, automation, dashboards, streaming concepts, and community experiences.
+### Trade Hybrid Club
+A connected trading ecosystem spanning market tools, journaling, analytics, automation, education, membership, community, and trader operations.
 
-### Elevate
-An applied wearable R&D concept exploring movement, location, wellness, connected sensing, interchangeable hardware, and human performance.
+### Project Vector
+A working connected-wearable R&D concept exploring movement, location, wellness, sensing, interchangeable hardware, and everyday human performance.
 
 ### AutoBid
 An AI-assisted opportunity intelligence platform designed to discover procurement opportunities, match capabilities, identify teaming paths, and organize response strategy.
