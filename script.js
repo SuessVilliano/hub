@@ -282,7 +282,7 @@
       openCalendar();
     }catch(error){
       const small=form.querySelector('small');
-      if(small)small.textContent=error.message+' — please use the scheduler or call 302-402-3752.';
+      if(small)small.textContent=error.message+' — please use the scheduler or call 302-404-2323.';
     }finally{
       if(button){button.disabled=false;button.innerHTML='Save Interest + Schedule <span>→</span>'}
     }
@@ -303,7 +303,7 @@
       form.reset();
       setTimeout(openCalendar,500);
     }catch(error){
-      if(status)status.textContent=error.message+' — you can still call 302-402-3752.';
+      if(status)status.textContent=error.message+' — you can still call 302-404-2323.';
     }finally{
       if(button){button.disabled=false;button.innerHTML='Send Project + Continue <span>→</span>'}
     }
