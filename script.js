@@ -5,6 +5,7 @@
   const body=document.body;
   const HL=window.AIH_HIGHLEVEL||{};
   const BOOKING_URL=HL.bookingUrl||'https://speakwith.us/jamaurjohnson';
+  const CLIENT_PORTAL_URL=HL.clientPortalUrl||'';
 
   // Native HighLevel chat takeover: once location/widget IDs are supplied,
   // the production HighLevel widget replaces the temporary AIH website assistant.
@@ -41,6 +42,12 @@
 
   mountNativeHighLevelChat();
 
+  // Client Portal links only appear when the exact portal URL is configured.
+  $('[data-client-portal]').forEach(link=>{
+    if(!CLIENT_PORTAL_URL){ link.hidden=true; return; }
+    link.hidden=false; link.href=CLIENT_PORTAL_URL; link.target='_blank'; link.rel='noopener';
+  });
+
   // Loader
   const loader=$('#loader');
   const finishLoader=()=>setTimeout(()=>loader?.classList.add('done'),260);
@@ -50,8 +57,7 @@
 
   // Theme
   const savedTheme=localStorage.getItem('aih-theme');
-  const systemLight=window.matchMedia?.('(prefers-color-scheme: light)').matches;
-  root.dataset.theme=savedTheme || (systemLight ? 'light' : 'dark');
+  root.dataset.theme=savedTheme || 'light';
   $('#themeToggle')?.addEventListener('click',()=>{
     root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
     localStorage.setItem('aih-theme',root.dataset.theme);
@@ -88,6 +94,48 @@
     });
   },{threshold:.12,rootMargin:'0px 0px -30px'});
   $$('.reveal').forEach(el=>revealObserver.observe(el));
+
+
+  // Scroll-linked depth: the site subtly changes perspective as the visitor moves.
+  const depthEls=$('[data-depth]');
+  const perspectiveSections=$('.perspective-section,.project-card,.outcome-card,.solution-card');
+  let depthRaf=0;
+  const updateDepth=()=>{
+    depthRaf=0;
+    const vh=innerHeight||800;
+    depthEls.forEach(el=>{
+      const r=el.getBoundingClientRect();
+      const factor=Number(el.dataset.depth||0);
+      const progress=((r.top+r.height/2)-vh/2)/vh;
+      el.style.setProperty('--depth-shift',(-progress*factor*90).toFixed(2)+'px');
+      el.style.setProperty('--depth-rotate',(progress*factor*7).toFixed(2)+'deg');
+    });
+    perspectiveSections.forEach(el=>{
+      const r=el.getBoundingClientRect();
+      const p=Math.max(-1,Math.min(1,(r.top-vh*.5)/vh));
+      el.style.setProperty('--section-tilt',(p*1.4).toFixed(2)+'deg');
+    });
+  };
+  const requestDepth=()=>{ if(!depthRaf) depthRaf=requestAnimationFrame(updateDepth); };
+  addEventListener('scroll',requestDepth,{passive:true});
+  addEventListener('resize',requestDepth,{passive:true});
+  updateDepth();
+
+  // Hero scene responds to pointer position without sacrificing touch performance.
+  const stage=$('#innovationStage');
+  if(stage && matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    stage.addEventListener('pointermove',e=>{
+      const r=stage.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      stage.style.setProperty('--scene-ry',(x*12).toFixed(2)+'deg');
+      stage.style.setProperty('--scene-rx',(-y*9).toFixed(2)+'deg');
+    });
+    stage.addEventListener('pointerleave',()=>{
+      stage.style.setProperty('--scene-ry','0deg');
+      stage.style.setProperty('--scene-rx','0deg');
+    });
+  }
 
   // Count animation
   const counters=$$('[data-count]');
@@ -279,8 +327,7 @@
     {keys:['logistic','delivery','last mile','route','dispatch','courier'],text:'The logistics model includes local delivery coordination, B2B transfers, route operations, dispatch workflows, proof of delivery, customer notifications, and eventually technology that helps manage those operations.'},
     {keys:['government','contract','prime','subcontract','agency','procurement','bid','teaming'],text:'AIH is being structured to support primes and organizations with technology, fulfillment, logistics, sourcing, operating systems, and project execution. We do not claim registrations or certifications until verified, but we can scope teaming and subcontract opportunities now.'},
     {keys:['event','workshop','bootcamp','boot camp','training','class','sunday'],text:'Initial programming includes AI Build Sunday, Business Systems Lab, E-commerce Ops Lab, Trade House Sessions, Contract Opportunity Lab, and founding-member workshops. Dates will be announced as the facility and event calendar are finalized.'},
-    {keys:['trade','trading','market','trade house'],text:'The Trade House concept is a quiet execution and analytics environment focused on structured market process, technology, journaling, research, and disciplined operations. The front execution room can switch between trader mode and client/reception mode.'},
-    {keys:['facility','location','bear','delaware','warehouse','hub','open yet','address'],text:'AIH is planning a Delaware physical hub with a quiet front execution/client room plus open industrial space for fulfillment, R&D, logistics, training, staging, and special projects. The facility is still in the planning stage, so the website does not present occupancy as finalized.'},
+    {keys:['facility','location','bear','delaware','warehouse','hub','open yet','address'],text:'AIH is planning a Delaware innovation hub for client sessions, demonstrations, prototyping, workshops, fulfillment, logistics, and special projects. The facility is still in planning, so we do not present occupancy or availability as finalized.'},
     {keys:['price','pricing','cost','how much','rate'],text:'Pricing depends on the business problem and scope. AIH may solve one focused constraint or architect a broader transformation across systems, finance, operations, software, or managed agents. The fastest route is a Discovery Call so we can scope the outcome before pricing the work.'},
     {keys:['partner','invest','founding','member','membership','join'],text:'Founding Access is for early customers, collaborators, brands, operators, vendors, and community partners who want first access to programs, pilots, workshops, fulfillment, and beta technology. I can open the founding-access form or schedule a conversation.'},
     {keys:['trade hybrid','tradehybrid','trade hybrid club'],text:'Trade Hybrid Club is one of the team’s proof projects: a connected trading ecosystem spanning market tools, journaling, intelligence, community, member experiences, automation, and trader operations. It demonstrates the kind of multi-system product architecture AIH can build.'},
@@ -292,7 +339,7 @@
     {keys:['reactivation','old leads','database'],text:'The Lead Reactivation Engine segments older contacts and uses compliant SMS, email, AI conversations, booking flows, and sales-team handoff to recover dormant opportunities.'},
     {keys:['managed agent','managed agents','ai employee','ai employees','agent studio'],text:'AIH does not sell “a chatbot.” We design managed digital roles around real work: define the job, connect knowledge and actions, set guardrails and human handoffs, then measure performance. Reception, sales coordination, research, operations, customer success, and custom roles are all possible when the workflow justifies it.'},
     {keys:['acquisition','buy a business','acquire','m&a','due diligence'],text:'AIH can help evaluate and improve businesses before, during, or after an acquisition by combining operating systems, AI, technology review, project economics, profitability analysis, diligence support, and post-close integration. Select strategic acquisition or partnership opportunities may also be evaluated when there is a strong operating fit.'},
-    {keys:['early advisory','jonathan early','project economics','cfo','infrastructure advisory'],text:'AIH can pair its technology and operating capabilities with specialist finance and infrastructure expertise. Early Advisory is an independent advisory practice with CFO, accounting, project-economics, profitability, M&A diligence, integration, and infrastructure-sector experience that may support larger engagements when appropriate.'},
+    {keys:['project economics','cfo','infrastructure advisory','enterprise finance'],text:'AIH can support executive finance, project economics, profitability, forecasting, acquisition diligence, integration, and infrastructure-sector decision support as part of broader transformation work.'},
     {keys:['calendar','book','schedule','call','meeting','talk','appointment'],text:'Absolutely. I can open the AIH Discovery Call scheduler now.',action:'calendar'},
     {keys:['contact','email','phone'],text:'The fastest contact route on this site is the project intake or strategy-call scheduler. Tell me what you need and I can send you directly to scheduling.'}
   ];
