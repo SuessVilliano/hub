@@ -3,7 +3,43 @@
   const $$=(s,c=document)=>[...c.querySelectorAll(s)];
   const root=document.documentElement;
   const body=document.body;
-  const BOOKING_URL='https://speakwith.us/jamaurjohnson';
+  const HL=window.AIH_HIGHLEVEL||{};
+  const BOOKING_URL=HL.bookingUrl||'https://speakwith.us/jamaurjohnson';
+
+  // Native HighLevel chat takeover: once location/widget IDs are supplied,
+  // the production HighLevel widget replaces the temporary AIH website assistant.
+  const mountNativeHighLevelChat=()=>{
+    if(!HL.useNativeChat||!HL.chatWidgetId||!HL.locationId)return false;
+    const mount=document.createElement('div');
+    mount.setAttribute('data-chat-widget','');
+    mount.setAttribute('data-widget-id',HL.chatWidgetId);
+    mount.setAttribute('data-location-id',HL.locationId);
+    document.body.appendChild(mount);
+    const s=document.createElement('script');
+    s.src='https://widgets.leadconnectorhq.com/loader.js';
+    s.dataset.resourcesUrl='https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+    s.dataset.widgetId=HL.chatWidgetId;
+    s.async=true;
+    document.body.appendChild(s);
+    document.documentElement.classList.add('native-highlevel-chat');
+    return true;
+  };
+
+  const replaceWithHighLevelForm=(selector,url,title)=>{
+    if(!url)return false;
+    const form=document.querySelector(selector);
+    if(!form)return false;
+    const frame=document.createElement('iframe');
+    frame.src=url;
+    frame.title=title;
+    frame.loading='lazy';
+    frame.className='highlevel-form-frame';
+    frame.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    form.replaceWith(frame);
+    return true;
+  };
+
+  mountNativeHighLevelChat();
 
   // Loader
   const loader=$('#loader');
@@ -170,6 +206,9 @@
     }catch(_){}
   };
 
+  if(HL.projectFormUrl)replaceWithHighLevelForm('#leadForm',HL.projectFormUrl,'Applied Innovations Hub project intake');
+  if(HL.interestFormUrl)replaceWithHighLevelForm('#interestForm',HL.interestFormUrl,'Applied Innovations Hub interest form');
+
   $('#interestForm')?.addEventListener('submit',e=>{
     e.preventDefault();
     const data=Object.fromEntries(new FormData(e.currentTarget).entries());
@@ -210,6 +249,13 @@
     {keys:['facility','location','bear','delaware','warehouse','hub','open yet','address'],text:'AIH is planning a Delaware physical hub with a quiet front execution/client room plus open industrial space for fulfillment, R&D, logistics, training, staging, and special projects. The facility is still in the planning stage, so the website does not present occupancy as finalized.'},
     {keys:['price','pricing','cost','how much','rate'],text:'Pricing depends on scope because AIH can deliver one-day implementations, recurring managed systems, fulfillment operations, R&D projects, logistics support, or team programs. The fastest way to price it correctly is a short strategy call.'},
     {keys:['partner','invest','founding','member','membership','join'],text:'Founding Access is for early customers, collaborators, brands, operators, vendors, and community partners who want first access to programs, pilots, workshops, fulfillment, and beta technology. I can open the founding-access form or schedule a conversation.'},
+    {keys:['trade hybrid','tradehybrid'],text:'Trade Hybrid is one of the team’s proof projects: a connected trading ecosystem spanning alerts, journaling, market intelligence, dashboards, automation, trader operations, and community experiences. It demonstrates the kind of multi-system product architecture AIH can build.'},
+    {keys:['elevate','wearable'],text:'Elevate is an applied wearable R&D concept exploring movement, location, wellness, connected sensing, interchangeable hardware, and everyday human performance. It is an example of AIH moving beyond software into product and hardware experimentation.'},
+    {keys:['autobid','auto bid'],text:'AutoBid is an AI-assisted opportunity intelligence platform designed to find procurement opportunities, match capabilities, identify teaming paths, and organize response strategy. It reflects AIH’s GovTech and opportunity-research capability.'},
+    {keys:['certified','highlevel admin','high level admin','chapter'],text:'AIH team members are HighLevel Certified Admins. A Delaware HighLevel Local Chapter is planned and is presented as Coming Soon while the local program is finalized.'},
+    {keys:['missed call','missed-call','missed calls'],text:'The Missed-Call Rescue system is designed to immediately text back unanswered callers, continue the conversation, qualify the lead, offer scheduling, and create a CRM opportunity so the lead does not disappear.'},
+    {keys:['review','reputation'],text:'The Review + Reputation Engine automates review requests, follow-up, customer feedback routing, and reputation workflows so the process does not depend on staff remembering to ask every customer.'},
+    {keys:['reactivation','old leads','database'],text:'The Lead Reactivation Engine segments older contacts and uses compliant SMS, email, AI conversations, booking flows, and sales-team handoff to recover dormant opportunities.'},
     {keys:['calendar','book','schedule','call','meeting','talk','appointment'],text:'Absolutely. I can open the strategy-call scheduler now.',action:'calendar'},
     {keys:['contact','email','phone'],text:'The fastest contact route on this site is the project intake or strategy-call scheduler. Tell me what you need and I can send you directly to scheduling.'}
   ];
