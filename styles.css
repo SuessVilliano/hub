@@ -391,3 +391,129 @@ button:disabled{opacity:.6;cursor:wait;transform:none!important}
 .outcome-card b{font-size:11px;color:var(--soft);line-height:1.5;margin-top:auto;position:relative;z-index:1}
 @media(max-width:1100px){.outcome-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.outcome-grid{grid-template-columns:1fr}.outcome-card{min-height:240px}}
+
+
+/* ===== AIH LIGHT-FIRST / 3D EXPERIENCE ===== */
+html[data-theme="light"] body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(103,232,249,.12),transparent 28%),
+    radial-gradient(circle at 86% 12%,rgba(79,140,255,.10),transparent 30%),
+    linear-gradient(180deg,#fbfdff 0%,#f5f8fc 42%,#eef4fa 100%);
+}
+html[data-theme="light"] .loader{background:linear-gradient(155deg,#ffffff,#eef5fb)}
+html[data-theme="light"] .loader-mark span{
+  background:linear-gradient(120deg,#0b1323,#1e74d8,#7c3aed);
+  -webkit-background-clip:text;color:transparent
+}
+html[data-theme="light"] .loader p{color:#64748b}
+html[data-theme="light"] .loader-line{background:#dbe7f1}
+html[data-theme="light"] .nav-wrap{background:rgba(255,255,255,.76)}
+html[data-theme="light"] .glass{
+  background:rgba(255,255,255,.68);
+  box-shadow:0 28px 80px rgba(60,83,115,.16);
+}
+html[data-theme="light"] .cap-card,
+html[data-theme="light"] .outcome-card,
+html[data-theme="light"] .solution-card,
+html[data-theme="light"] .project-card{
+  box-shadow:0 18px 50px rgba(43,67,98,.09);
+}
+
+.hero{perspective:1400px}
+.hero-copy{transform:translateZ(25px)}
+.hero-panel{perspective:1350px;isolation:isolate}
+.innovation-stage{
+  --scene-rx:0deg;--scene-ry:0deg;
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  transform:rotateX(var(--scene-rx)) rotateY(var(--scene-ry));
+  transition:transform .22s ease-out;
+}
+.innovation-stage [data-depth],
+.hero-glass-card[data-depth]{
+  transform:translate3d(0,var(--depth-shift,0),0) rotateZ(var(--depth-rotate,0));
+  will-change:transform;
+}
+.stage-halo{position:absolute;border-radius:50%;filter:blur(1px);opacity:.9}
+.halo-a{width:420px;height:420px;left:50%;top:50%;margin:-210px 0 0 -210px;border:1px solid rgba(79,140,255,.22);box-shadow:0 0 90px rgba(79,140,255,.12) inset}
+.halo-b{width:310px;height:510px;left:50%;top:50%;margin:-255px 0 0 -155px;border:1px solid rgba(124,58,237,.20);transform:rotate(58deg)}
+.core-orb{
+  position:absolute;width:260px;height:260px;left:50%;top:50%;margin:-130px 0 0 -130px;border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.94),rgba(103,232,249,.44) 22%,rgba(79,140,255,.34) 48%,rgba(124,58,237,.18) 70%,transparent 72%);
+  box-shadow:0 30px 90px rgba(79,140,255,.22),inset -25px -30px 60px rgba(28,77,160,.12);
+  transform-style:preserve-3d;animation:coreFloat 7s ease-in-out infinite;
+}
+.core-mark{position:absolute;inset:0;display:grid;place-items:center;font-weight:950;letter-spacing:-4px;font-size:48px;color:#0b1730;text-shadow:0 8px 30px rgba(255,255,255,.8)}
+.core-ring{position:absolute;inset:-34px;border:1px solid rgba(79,140,255,.28);border-radius:50%}
+.ring-one{transform:rotateX(68deg);animation:ringSpinA 15s linear infinite}
+.ring-two{transform:rotateY(68deg);animation:ringSpinB 18s linear infinite}
+.ring-three{inset:-62px;transform:rotateX(52deg) rotateY(28deg);border-color:rgba(124,58,237,.18);animation:ringSpinC 22s linear infinite}
+@keyframes coreFloat{50%{translate:0 -12px;scale:1.025}}
+@keyframes ringSpinA{to{transform:rotateX(68deg) rotateZ(360deg)}}
+@keyframes ringSpinB{to{transform:rotateY(68deg) rotateZ(-360deg)}}
+@keyframes ringSpinC{to{transform:rotateX(52deg) rotateY(28deg) rotateZ(360deg)}}
+.float-chip{
+  position:absolute;padding:10px 12px;border:1px solid rgba(79,140,255,.22);border-radius:12px;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(12px);box-shadow:0 15px 35px rgba(48,72,105,.12);
+  display:flex;gap:8px;align-items:center;font-size:9px;letter-spacing:1.4px;font-weight:850;color:#1f3150;
+}
+.float-chip b{color:#4f8cff}.chip-strategy{left:4%;top:17%}.chip-build{right:0;top:28%}.chip-deploy{left:7%;bottom:18%}.chip-scale{right:5%;bottom:12%}
+.depth-plane{position:absolute;width:240px;height:150px;border:1px solid rgba(79,140,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.52),rgba(79,140,255,.05));border-radius:22px;transform-style:preserve-3d}
+.plane-one{left:14%;top:34%;rotate:66deg;transform:perspective(800px) rotateX(62deg)}
+.plane-two{right:10%;top:38%;rotate:-28deg;transform:perspective(800px) rotateY(62deg)}
+.hero-glass-card{transform-style:preserve-3d;z-index:6}
+.hero-glass-card>*{transform:translateZ(26px)}
+
+.perspective-section,.project-card,.outcome-card,.solution-card{transform-style:preserve-3d}
+@supports (transform:rotateX(1deg)){
+  .perspective-section{transform:perspective(1600px) rotateX(var(--section-tilt,0deg))}
+}
+.outcome-card,.solution-card,.project-card{
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.outcome-card:hover,.solution-card:hover,.project-card:hover{
+  transform:perspective(1100px) translateY(-7px) rotateX(1.8deg) rotateY(-1.2deg);
+  box-shadow:0 30px 80px rgba(47,75,111,.16);
+}
+
+.facility-shell{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.facility-points{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px 0}
+.facility-points span{padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--panel) 84%,transparent);font-size:12px;color:var(--soft)}
+.facility-visual{height:430px;display:grid;place-items:center;perspective:1100px;position:relative;transform-style:preserve-3d}
+.facility-cube{width:190px;height:190px;position:relative;transform-style:preserve-3d;transform:rotateX(-20deg) rotateY(34deg);animation:cubeDrift 9s ease-in-out infinite}
+.cube-face{position:absolute;width:190px;height:190px;border:1px solid rgba(79,140,255,.22);background:rgba(255,255,255,.62);backdrop-filter:blur(14px);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;box-shadow:inset 0 0 45px rgba(79,140,255,.07)}
+.cube-face b{font-size:24px}.cube-face small{color:var(--muted);margin-top:5px}
+.cube-front{transform:translateZ(95px)}
+.cube-right{transform:rotateY(90deg) translateZ(95px)}
+.cube-top{transform:rotateX(90deg) translateZ(95px)}
+.facility-platform{position:absolute;width:330px;height:180px;border-radius:50%;background:radial-gradient(ellipse,rgba(79,140,255,.18),transparent 68%);transform:rotateX(72deg) translateZ(-90px)}
+.facility-light{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(103,232,249,.24),transparent 68%);filter:blur(20px)}
+@keyframes cubeDrift{50%{transform:rotateX(-16deg) rotateY(43deg) translateY(-13px)}}
+
+.client-portal-link{font-weight:800!important;color:var(--blue)!important}
+.footer-portal{margin-left:auto;text-decoration:none;font-size:12px;letter-spacing:.3px}
+
+.reveal.visible{animation:aihReveal3d .72s cubic-bezier(.2,.75,.25,1) both}
+@keyframes aihReveal3d{
+  from{opacity:0;transform:perspective(1000px) translateY(30px) translateZ(-36px) rotateX(3deg)}
+  to{opacity:1;transform:perspective(1000px) translateY(0) translateZ(0) rotateX(0)}
+}
+
+@media(max-width:900px){
+  .facility-shell{grid-template-columns:1fr}
+  .facility-visual{height:320px}
+  .float-chip{font-size:8px}
+  .core-orb{width:220px;height:220px;margin:-110px 0 0 -110px}
+}
+@media(max-width:680px){
+  .hero-panel{height:410px}
+  .innovation-stage{transform:scale(.88) rotateX(var(--scene-rx)) rotateY(var(--scene-ry))}
+  .float-chip{padding:8px 9px}
+  .chip-build{right:2%}.chip-strategy{left:1%}
+  .facility-points{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .core-orb,.core-ring,.facility-cube{animation:none!important}
+  .innovation-stage,.perspective-section,.project-card,.outcome-card,.solution-card{transform:none!important}
+}
