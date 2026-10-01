@@ -1,1 +1,269 @@
-const menu=document.getElementById('menu');const links=document.getElementById('links');menu?.addEventListener('click',()=>links?.classList.toggle('open'));document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>links?.classList.remove('open')));const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();document.getElementById('leadForm')?.addEventListener('submit',e=>{e.preventDefault();const status=document.getElementById('formStatus')||document.getElementById('status');if(status)status.textContent='Request captured in this prototype. CRM routing will be connected next.';e.currentTarget.reset();});
+(() => {
+  const $=(s,c=document)=>c.querySelector(s);
+  const $$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const root=document.documentElement;
+  const body=document.body;
+  const BOOKING_URL='https://speakwith.us/jamaurjohnson';
+
+  // Loader
+  const loader=$('#loader');
+  const finishLoader=()=>setTimeout(()=>loader?.classList.add('done'),260);
+  if(document.readyState==='complete') finishLoader();
+  else window.addEventListener('load',finishLoader,{once:true});
+  setTimeout(finishLoader,1800);
+
+  // Theme
+  const savedTheme=localStorage.getItem('aih-theme');
+  const systemLight=window.matchMedia?.('(prefers-color-scheme: light)').matches;
+  root.dataset.theme=savedTheme || (systemLight ? 'light' : 'dark');
+  $('#themeToggle')?.addEventListener('click',()=>{
+    root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+    localStorage.setItem('aih-theme',root.dataset.theme);
+  });
+
+  // Header + mobile nav
+  const header=$('#siteHeader'),menu=$('#menu'),links=$('#links');
+  const onScroll=()=>header?.classList.toggle('scrolled',scrollY>18);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+  menu?.addEventListener('click',()=>{
+    const open=links?.classList.toggle('open');
+    menu.setAttribute('aria-expanded',String(!!open));
+  });
+  $$('#links a').forEach(a=>a.addEventListener('click',()=>{
+    links?.classList.remove('open'); menu?.setAttribute('aria-expanded','false');
+  }));
+
+  // Cursor glow
+  const glow=$('#cursorGlow');
+  if(glow && matchMedia('(pointer:fine)').matches){
+    addEventListener('pointermove',e=>{
+      glow.style.left=e.clientX+'px';
+      glow.style.top=e.clientY+'px';
+    },{passive:true});
+  }
+
+  // Reveal on scroll
+  const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -30px'});
+  $$('.reveal').forEach(el=>revealObserver.observe(el));
+
+  // Count animation
+  const counters=$$('[data-count]');
+  const countObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const el=entry.target,target=Number(el.dataset.count||0);
+      let start=0;
+      const step=()=>{start++;el.textContent=start;if(start<target)requestAnimationFrame(step)};
+      step();countObserver.unobserve(el);
+    });
+  },{threshold:.7});
+  counters.forEach(el=>countObserver.observe(el));
+
+  // Hover spotlight + subtle tilt
+  $$('.cap-card').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+  if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    $$('.tilt-card').forEach(card=>{
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        card.style.transform='perspective(900px) rotateX('+(-y*3.5)+'deg) rotateY('+(x*4.5)+'deg) translateY(-2px)';
+      });
+      card.addEventListener('pointerleave',()=>card.style.transform='');
+    });
+    $$('.magnetic').forEach(el=>{
+      el.addEventListener('pointermove',e=>{
+        const r=el.getBoundingClientRect();
+        el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.08)+'px,'+((e.clientY-r.top-r.height/2)*.08)+'px)';
+      });
+      el.addEventListener('pointerleave',()=>el.style.transform='');
+    });
+  }
+
+  // Facility flow tabs
+  const flowContent={
+    execution:{
+      title:'Quiet execution + client mode',
+      text:'The front office can operate as a focused trading/execution room with clustered workstations, while switching into reception, meetings, sales, and client consultations when traders are not using it.'
+    },
+    fulfillment:{
+      title:'Fulfillment built along the wall',
+      text:'Inventory, Amazon FBA prep, kitting, packing, returns, shelving, labels, and outbound staging stay organized on a long wall so the center floor remains flexible.'
+    },
+    rnd:{
+      title:'R&D without wasting a room',
+      text:'A dedicated workbench wall supports software/hardware prototyping, electronics, testing, technical repair, packaging experiments, and applied product development.'
+    },
+    flex:{
+      title:'Open floor = optionality',
+      text:'The center remains deliberately open for workshops, training, equipment staging, product photography, project assembly, vehicle/detailing concepts, and temporary operating setups.'
+    }
+  };
+  $$('.flow-tab').forEach(btn=>btn.addEventListener('click',()=>{
+    $$('.flow-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const key=btn.dataset.zone,data=flowContent[key],box=$('#flowCopy');
+    if(box&&data)box.innerHTML='<h3>'+data.title+'</h3><p>'+data.text+'</p>';
+    $$('[data-bp]').forEach(el=>el.classList.toggle('active-zone',el.dataset.bp===key));
+  }));
+
+  // Revenue stack
+  const revenueCopy={
+    now:['Start with what can be delivered immediately.','AI/business infrastructure builds, implementation days, small-brand fulfillment, FBA prep, workshops, and project-based technical services can begin before larger procurement cycles mature.'],
+    next:['Turn projects into recurring operations.','Managed automations, monthly systems support, route coordination, storage, repeat fulfillment, events, and ongoing technical operations create repeatable monthly revenue.'],
+    later:['Use operating history to unlock larger work.','Documented delivery, commercial customers, partner relationships, technical prototypes, registrations, and past performance can support larger subcontracting, institutional work, and R&D funding opportunities.']
+  };
+  $$('.stack-row').forEach(row=>row.addEventListener('click',()=>{
+    $$('.stack-row').forEach(r=>r.classList.remove('active'));row.classList.add('active');
+    const d=revenueCopy[row.dataset.stack],box=$('#revenueDetail');
+    if(d&&box)box.innerHTML='<strong>'+d[0]+'</strong><p>'+d[1]+'</p>';
+  }));
+
+  // Modal controls
+  const openModal=modal=>{
+    if(!modal)return;
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');body.classList.add('modal-open');
+  };
+  const closeModal=modal=>{
+    if(!modal)return;
+    modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+    if(!$('.modal.open'))body.classList.remove('modal-open');
+  };
+  $$('[data-close-modal]').forEach(el=>el.addEventListener('click',()=>closeModal(el.closest('.modal'))));
+  addEventListener('keydown',e=>{if(e.key==='Escape'){$$('.modal.open').forEach(closeModal);$('#chatWidget')?.classList.remove('open')}});
+
+  const calendarModal=$('#calendarModal'),calendarFrame=$('#calendarFrame');
+  const openCalendar=()=>{
+    if(calendarFrame && !calendarFrame.src)calendarFrame.src=calendarFrame.dataset.src||BOOKING_URL;
+    openModal(calendarModal);
+  };
+  $$('[data-open-calendar]').forEach(el=>el.addEventListener('click',openCalendar));
+
+  // Interest / event capture
+  const interestModal=$('#interestModal'),interestEvent=$('#interestEvent'),interestTitle=$('#interestTitle'),interestCopy=$('#interestCopy');
+  const openInterest=(name='Founding Access')=>{
+    if(interestEvent)interestEvent.value=name;
+    if(interestTitle)interestTitle.textContent=name==='Founding Access'?'Get founding access.':'Join '+name+'.';
+    if(interestCopy)interestCopy.textContent='Leave your details for '+name+' updates, then choose a time if you want to discuss it now.';
+    openModal(interestModal);
+  };
+  $$('.event-interest').forEach(btn=>btn.addEventListener('click',()=>openInterest(btn.dataset.event||'Founding Access')));
+  $$('[data-open-founder]').forEach(btn=>btn.addEventListener('click',()=>{hideExit();openInterest('Founding Access')}));
+
+  const saveLocalLead=(kind,data)=>{
+    try{
+      const key='aih-'+kind+'-leads';
+      const existing=JSON.parse(localStorage.getItem(key)||'[]');
+      existing.push({...data,createdAt:new Date().toISOString()});
+      localStorage.setItem(key,JSON.stringify(existing.slice(-20)));
+    }catch(_){}
+  };
+
+  $('#interestForm')?.addEventListener('submit',e=>{
+    e.preventDefault();
+    const data=Object.fromEntries(new FormData(e.currentTarget).entries());
+    saveLocalLead('interest',data);
+    closeModal(interestModal);
+    e.currentTarget.reset();
+    openCalendar();
+  });
+
+  $('#leadForm')?.addEventListener('submit',e=>{
+    e.preventDefault();
+    const data=Object.fromEntries(new FormData(e.currentTarget).entries());
+    saveLocalLead('project',data);
+    const status=$('#formStatus');
+    if(status)status.textContent='Project intake captured in this browser. Opening scheduling…';
+    setTimeout(openCalendar,350);
+  });
+
+  // AIH Assistant
+  const chat=$('#chatWidget'),messages=$('#chatMessages'),chatInput=$('#chatInput');
+  const openChat=()=>{
+    chat?.classList.add('open');chat?.setAttribute('aria-hidden','false');
+    setTimeout(()=>chatInput?.focus(),120);
+  };
+  const closeChat=()=>{chat?.classList.remove('open');chat?.setAttribute('aria-hidden','true')};
+  $('#chatLauncher')?.addEventListener('click',()=>chat?.classList.contains('open')?closeChat():openChat());
+  $('#chatClose')?.addEventListener('click',closeChat);
+
+  const answers=[
+    {keys:['service','offer','do you do','capabilit'],text:'AIH is organized around six execution pillars: AI + business systems, applied R&D, commerce + fulfillment, logistics + last mile, commercial/public-sector support, and training/workforce programs. Tell me which one you want to explore.'},
+    {keys:['ai','automat','crm','agent','website','highlevel','business system'],text:'AIH can scope business infrastructure such as CRM, AI agents, lead capture, booking, follow-up, payments, review workflows, customer communication, reporting, and operational automations. The goal is a working system—not just software setup.'},
+    {keys:['r&d','research','prototype','prototyp','hardware','software','fintech'],text:'Applied R&D can include AI workflows, fintech tools, software prototypes, data systems, automation experiments, electronics or hardware concepts, process tests, and proof-of-concept development. Projects are scoped around a specific problem, prototype, test plan, and deployment path.'},
+    {keys:['amazon','fba','fulfill','ecommerce','e-commerce','pick','pack','inventory','shipping','returns'],text:'AIH is developing micro-fulfillment capability for inventory intake, FBA prep, pick-and-pack, kitting, labeling, returns, product staging, and outbound shipment workflows. Capacity and final service levels will depend on the physical hub setup.'},
+    {keys:['logistic','delivery','last mile','route','dispatch','courier'],text:'The logistics model includes local delivery coordination, B2B transfers, route operations, dispatch workflows, proof of delivery, customer notifications, and eventually technology that helps manage those operations.'},
+    {keys:['government','contract','prime','subcontract','agency','procurement','bid','teaming'],text:'AIH is being structured to support primes and organizations with technology, fulfillment, logistics, sourcing, operating systems, and project execution. We do not claim registrations or certifications until verified, but we can scope teaming and subcontract opportunities now.'},
+    {keys:['event','workshop','bootcamp','boot camp','training','class','sunday'],text:'Initial programming includes AI Build Sunday, Business Systems Lab, E-commerce Ops Lab, Trade House Sessions, Contract Opportunity Lab, and founding-member workshops. Dates will be announced as the facility and event calendar are finalized.'},
+    {keys:['trade','trading','market','trade house'],text:'The Trade House concept is a quiet execution and analytics environment focused on structured market process, technology, journaling, research, and disciplined operations. The front execution room can switch between trader mode and client/reception mode.'},
+    {keys:['facility','location','bear','delaware','warehouse','hub','open yet','address'],text:'AIH is planning a Delaware physical hub with a quiet front execution/client room plus open industrial space for fulfillment, R&D, logistics, training, staging, and special projects. The facility is still in the planning stage, so the website does not present occupancy as finalized.'},
+    {keys:['price','pricing','cost','how much','rate'],text:'Pricing depends on scope because AIH can deliver one-day implementations, recurring managed systems, fulfillment operations, R&D projects, logistics support, or team programs. The fastest way to price it correctly is a short strategy call.'},
+    {keys:['partner','invest','founding','member','membership','join'],text:'Founding Access is for early customers, collaborators, brands, operators, vendors, and community partners who want first access to programs, pilots, workshops, fulfillment, and beta technology. I can open the founding-access form or schedule a conversation.'},
+    {keys:['calendar','book','schedule','call','meeting','talk','appointment'],text:'Absolutely. I can open the strategy-call scheduler now.',action:'calendar'},
+    {keys:['contact','email','phone'],text:'The fastest contact route on this site is the project intake or strategy-call scheduler. Tell me what you need and I can send you directly to scheduling.'}
+  ];
+
+  const normalize=s=>(s||'').toLowerCase().replace(/[^a-z0-9& -]/g,' ');
+  const findAnswer=q=>{
+    const n=normalize(q);
+    let best=null,score=0;
+    answers.forEach(a=>{
+      const s=a.keys.reduce((sum,k)=>sum+(n.includes(k)?1:0),0);
+      if(s>score){score=s;best=a}
+    });
+    return best||{text:'AIH can help with AI/business systems, applied R&D, fulfillment/FBA, logistics, training, partner work, and commercial or public-sector support. If your question is project-specific, tell me the outcome you want and I will point you to the right capability—or we can schedule a call.'};
+  };
+  const addMessage=(text,type='bot')=>{
+    if(!messages)return;
+    const wrap=document.createElement('div');wrap.className='msg '+type;
+    const p=document.createElement('p');p.textContent=text;wrap.appendChild(p);messages.appendChild(wrap);
+    messages.scrollTop=messages.scrollHeight;
+  };
+  const ask=q=>{
+    if(!q?.trim())return;
+    openChat();addMessage(q,'user');
+    setTimeout(()=>{
+      const ans=findAnswer(q);addMessage(ans.text,'bot');
+      if(ans.action==='calendar'){
+        const qr=document.createElement('div');qr.className='quick-replies';
+        const b=document.createElement('button');b.textContent='Open Scheduler';b.addEventListener('click',openCalendar);qr.appendChild(b);messages?.appendChild(qr);messages.scrollTop=messages.scrollHeight;
+      }
+    },280);
+  };
+  $('#chatForm')?.addEventListener('submit',e=>{e.preventDefault();const q=chatInput?.value||'';if(chatInput)chatInput.value='';ask(q)});
+  $$('[data-chat-question]').forEach(btn=>btn.addEventListener('click',()=>ask(btn.dataset.chatQuestion)));
+  $$('.quick-replies [data-open-calendar]').forEach(btn=>btn.addEventListener('click',openCalendar));
+
+  // Exit intent: once per session, after engagement
+  const exit=$('#exitPopup');
+  let exitEligible=false;
+  const showExit=()=>{
+    if(!exit||sessionStorage.getItem('aih-exit-seen')==='1'||$('.modal.open'))return;
+    sessionStorage.setItem('aih-exit-seen','1');
+    exit.classList.add('show');exit.setAttribute('aria-hidden','false');
+  };
+  const hideExit=()=>{exit?.classList.remove('show');exit?.setAttribute('aria-hidden','true')};
+  setTimeout(()=>exitEligible=true,12000);
+  document.addEventListener('mouseout',e=>{
+    if(exitEligible && e.clientY<=0 && !e.relatedTarget)showExit();
+  });
+  let mobileExitTimer=setTimeout(()=>{
+    if(innerWidth<820 && scrollY>document.body.scrollHeight*.22)showExit();
+  },30000);
+  $('#exitClose')?.addEventListener('click',hideExit);
+  $('#exitNoThanks')?.addEventListener('click',hideExit);
+
+  // External booking fallback for direct use
+  window.AIH={openCalendar,openChat,book:()=>window.open(BOOKING_URL,'_blank','noopener')};
+})();
