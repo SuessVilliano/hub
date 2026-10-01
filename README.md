@@ -53,10 +53,12 @@ The home page currently targets natural-language topics around:
 - AI and business workshops
 - New Castle County / Delaware innovation
 
-Before public production launch:
-- connect the final domain
-- add a canonical URL and absolute Open Graph image URL
-- add the final sitemap URL to `robots.txt`
+Production domain: `appliedinnovationshub.com`
+
+Public contact email: `contact@appliedinnovationshub.com`
+
+Production SEO now includes canonical URLs and a sitemap. Add/refresh the absolute Open Graph preview image when the final social card is ready.
+
 - connect Search Console / analytics
 - replace prototype lead storage with CRM submission
 - publish registrations, certifications or contract identifiers only after verification
