@@ -90,16 +90,29 @@ module.exports=async function handler(req,res){
       });
     }catch(e){ console.error("AIH note warning:",e.message); }
 
-    const pipelineId=env("AIH_PIPELINE_ID","HIGHLEVEL_PIPELINE_ID");
-    const stageId=env("AIH_PIPELINE_STAGE_NEW_ID","HIGHLEVEL_PIPELINE_STAGE_ID");
+    let pipelineId=env("AIH_PIPELINE_ID","HIGHLEVEL_PIPELINE_ID");
+    let stageId=env("AIH_PIPELINE_STAGE_NEW_ID","HIGHLEVEL_PIPELINE_STAGE_ID");
     let opportunityCreated=false;
-    if(pipelineId){
+    if(!pipelineId){
+      try{
+        const pipes=await ghl("/opportunities/pipelines?locationId="+encodeURIComponent(locationId));
+        const list=pipes.pipelines||pipes||[];
+        const p=Array.isArray(list)?list.find(x=>(x.name||"").toLowerCase()==="aih revenue pipeline"):null;
+        if(p){
+          pipelineId=p.id;
+          const s=(p.stages||[]).find(x=>(x.name||"").toLowerCase()==="new inquiry");
+          stageId=s?.id||stageId;
+        }
+      }catch(e){ console.error("AIH pipeline discovery warning:",e.message); }
+    }
+    if(pipelineId && kind==="project"){
       try{
         await ghl("/opportunities/",{
           method:"POST",
           body:JSON.stringify({
             pipelineId,locationId,pipelineStageId:stageId||undefined,
-            name:`${name} — ${interest}`,status:"open",contactId
+            name:`${name} — ${interest}`,status:"open",contactId,
+            source:"AIH Website"
           })
         });
         opportunityCreated=true;
