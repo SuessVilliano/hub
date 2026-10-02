@@ -142,7 +142,7 @@
   // Immersive pinned story: keep one screen while the narrative and 3D world evolve.
   const experience=$('#experience');
   const experienceVisual=$('#experienceVisual');
-  const storySteps=$('[data-story-step]');
+  const storySteps=[...document.querySelectorAll('[data-story-step]')];
   const experienceProgress=$('#experienceProgress');
   const experienceIndex=$('#experienceIndex');
   const experienceStatus=$('#experienceStatus');
