@@ -522,7 +522,7 @@ html[data-theme="light"] .project-card{
 /* ===== IMMERSIVE SCROLL STORY ===== */
 .scroll-experience{
   position:relative;
-  min-height:560vh;
+  min-height:460vh;
   background:
     radial-gradient(circle at 72% 40%,rgba(79,140,255,.12),transparent 32%),
     linear-gradient(180deg,#f8fbff 0%,#edf5fd 52%,#f8fbff 100%);
