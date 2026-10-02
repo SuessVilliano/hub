@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1050" role="img" aria-label="Concept visualization of the Applied Innovations Hub">
+<defs>
+  <linearGradient id="floor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#dceafb"/></linearGradient>
+  <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#c9ddf5"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3ad8ff"/><stop offset=".48" stop-color="#4f8cff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%"><feDropShadow dx="0" dy="28" stdDeviation="26" flood-color="#315a93" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1600" height="1050" fill="#f7fbff"/>
+<ellipse cx="870" cy="830" rx="600" ry="130" fill="#4f8cff" opacity=".07"/>
+<g filter="url(#shadow)">
+  <path d="M280 360 850 120 1360 410 780 710Z" fill="url(#floor)" stroke="#aecae9" stroke-width="3"/>
+  <path d="M280 360 780 710v165L280 525Z" fill="#dceafb" stroke="#aecae9" stroke-width="3"/>
+  <path d="M1360 410 780 710v165l580-315Z" fill="#cbdff5" stroke="#9fbee0" stroke-width="3"/>
+</g>
+
+<!-- long wall / fulfillment -->
+<g>
+  <path d="M960 290 1265 455 1112 536 805 370Z" fill="#eef6ff" stroke="#a8c8e9" stroke-width="2"/>
+  <g fill="#ffffff" stroke="#accbed">
+    <path d="M985 315 1033 342 1006 356 958 329Z"/>
+    <path d="M1045 347 1093 374 1066 388 1018 361Z"/>
+    <path d="M1105 380 1153 407 1126 421 1078 394Z"/>
+    <path d="M1165 412 1213 439 1186 453 1138 426Z"/>
+  </g>
+  <text x="1092" y="477" font-family="Arial" font-size="24" font-weight="800" fill="#31577e" transform="rotate(28 1092 477)">FULFILLMENT + LOGISTICS</text>
+</g>
+
+<!-- office / strategy front -->
+<g filter="url(#shadow)">
+  <path d="M360 390 565 300 700 376 490 468Z" fill="#ffffff" stroke="#9fc4e8" stroke-width="3"/>
+  <path d="M360 390 490 468v148L360 538Z" fill="#e1effc" stroke="#9fc4e8" stroke-width="3"/>
+  <path d="M700 376 490 468v148l210-92Z" fill="#d5e9fa" stroke="#9fc4e8" stroke-width="3"/>
+  <rect x="430" y="455" width="64" height="42" rx="5" fill="url(#accent)" opacity=".8" transform="rotate(30 430 455)"/>
+  <text x="492" y="402" font-family="Arial" font-size="22" font-weight="800" fill="#173a62" transform="rotate(-24 492 402)">CLIENT / STRATEGY</text>
+</g>
+
+<!-- R&D bench -->
+<g filter="url(#shadow)">
+  <path d="M725 320 882 250 1035 334 877 405Z" fill="#eff9ff" stroke="#93c6e9" stroke-width="2"/>
+  <path d="M750 331 803 307 850 333 796 357Z" fill="#4f8cff" opacity=".65"/>
+  <path d="M822 296 875 272 922 298 868 322Z" fill="#38d7ff" opacity=".65"/>
+  <circle cx="905" cy="334" r="23" fill="#7c3aed" opacity=".6"/>
+  <text x="837" y="375" font-family="Arial" font-size="22" font-weight="800" fill="#31577e" transform="rotate(28 837 375)">R&amp;D / PROTOTYPING</text>
+</g>
+
+<!-- workshop / flexible floor -->
+<g>
+  <path d="M590 470 835 365 1040 478 788 588Z" fill="#ffffff" opacity=".72" stroke="#b8d5f0" stroke-dasharray="8 8" stroke-width="2"/>
+  <g fill="#4f8cff" opacity=".2">
+    <ellipse cx="706" cy="465" rx="42" ry="18"/>
+    <ellipse cx="786" cy="432" rx="42" ry="18"/>
+    <ellipse cx="860" cy="474" rx="42" ry="18"/>
+    <ellipse cx="780" cy="514" rx="42" ry="18"/>
+  </g>
+  <text x="748" y="535" font-family="Arial" font-size="26" font-weight="800" fill="#31577e" transform="rotate(28 748 535)">WORKSHOPS / FLEX</text>
+</g>
+
+<!-- dock / garage -->
+<g filter="url(#shadow)">
+  <path d="M282 526 500 679v130L282 656Z" fill="#ebf4fd" stroke="#a6c5e5" stroke-width="2"/>
+  <path d="M318 557 456 653v72L318 628Z" fill="#c2d9ef" stroke="#89aed3" stroke-width="2"/>
+  <g stroke="#89aed3" stroke-width="2">
+    <path d="M340 574 340 645"/><path d="M368 592 368 663"/><path d="M396 611 396 682"/><path d="M424 630 424 701"/>
+  </g>
+  <text x="348" y="699" font-family="Arial" font-size="21" font-weight="800" fill="#31577e" transform="rotate(35 348 699)">ROLL-UP / DELIVERY</text>
+</g>
+
+<!-- bathroom bump / service -->
+<g>
+  <path d="M510 476 575 448 635 482 570 511Z" fill="#dbe8f7" stroke="#aac5e1"/>
+  <path d="M510 476 570 511v70l-60-34Z" fill="#c9dbef" stroke="#aac5e1"/>
+  <path d="M635 482 570 511v70l65-29Z" fill="#bdd2e8" stroke="#aac5e1"/>
+  <text x="552" y="532" font-family="Arial" font-size="14" font-weight="800" fill="#476786" transform="rotate(29 552 532)">SERVICE</text>
+</g>
+
+<!-- floating labels -->
+<g font-family="Arial" font-weight="800">
+  <g transform="translate(120 175)" filter="url(#shadow)"><rect width="290" height="96" rx="22" fill="#fff" stroke="#bad4ef"/><text x="24" y="39" font-size="19" fill="#183b63">IDEAS → OPERATIONS</text><text x="24" y="67" font-size="13" fill="#6c829a">Concept visualization · planned hub</text></g>
+  <g transform="translate(1180 170)" filter="url(#shadow)"><rect width="270" height="96" rx="22" fill="#fff" stroke="#bad4ef"/><text x="22" y="39" font-size="19" fill="#183b63">DIGITAL + PHYSICAL</text><text x="22" y="67" font-size="13" fill="#6c829a">One connected operating environment</text></g>
+</g>
+
+<!-- flow lines -->
+<g fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" opacity=".55">
+  <path d="M524 383C660 309 725 309 817 325"/>
+  <path d="M925 357C1040 371 1112 405 1181 449"/>
+  <path d="M835 515C690 575 596 619 475 660"/>
+</g>
+</svg>
