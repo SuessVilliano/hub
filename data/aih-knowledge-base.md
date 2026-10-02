@@ -286,3 +286,9 @@ Rules:
 - Use contact@appliedinnovationshub.com as the only public company email on the website, proposals, outreach, public profiles, and general contact materials unless explicitly instructed otherwise.
 - Staff forwarding addresses are internal and must not be published by default.
 - Event and workshop sender addresses may be used for their dedicated operational email flows only after they are verified/configured; do not publish them as the general contact address.
+
+
+## Client Portal
+Public client portal URL: https://portal.appliedinnovationshub.com/
+- Use the custom branded portal URL on all public website links and client-facing materials.
+- Do not expose the raw ClientClub subdomain publicly unless troubleshooting requires it.
