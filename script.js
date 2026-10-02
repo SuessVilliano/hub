@@ -139,42 +139,50 @@
 
 
 
-  // Immersive pinned story: keep one screen while the narrative and 3D world evolve.
+  // Horizontal slideshow: vertical scrolling immediately moves the five full-screen scenes sideways.
   const experience=$('#experience');
-  const experienceVisual=$('#experienceVisual');
-  const storySteps=[...document.querySelectorAll('[data-story-step]')];
-  const experienceProgress=$('#experienceProgress');
-  const experienceIndex=$('#experienceIndex');
-  const experienceStatus=$('#experienceStatus');
-  const storyLabels=[
-    'DIAGNOSING THE SYSTEM',
-    'ARCHITECTING THE FLOW',
-    'BUILDING THE PRODUCT',
-    'CONNECTING REAL OPERATIONS',
-    'SCALING THE BUSINESS'
-  ];
-  let storyRaf=0;
-  const updateStory=()=>{
-    storyRaf=0;
-    if(!experience || !experienceVisual || innerWidth<=980) return;
-    const r=experience.getBoundingClientRect();
-    const scrollable=Math.max(1,r.height-innerHeight);
-    const progress=Math.max(0,Math.min(1,-r.top/scrollable));
-    const count=storySteps.length||1;
-    const index=Math.min(count-1,Math.floor(progress*count));
-    storySteps.forEach((step,i)=>step.classList.toggle('active',i===index));
-    experienceVisual.className='experience-visual scene-'+index;
-    if(experienceProgress)experienceProgress.style.width=(((index+1)/count)*100)+'%';
-    if(experienceIndex)experienceIndex.textContent=String(index+1).padStart(2,'0');
-    if(experienceStatus)experienceStatus.textContent=storyLabels[index]||'BUILDING';
-    const local=(progress*count)-index;
-    experienceVisual.style.setProperty('--story-local',local.toFixed(3));
-    experienceVisual.style.transform='translate3d(0,'+((local-.5)*-12).toFixed(2)+'px,0) rotateZ('+((local-.5)*.8).toFixed(2)+'deg)';
+  const track=$('#experienceTrack');
+  const storyPanels=[...document.querySelectorAll('[data-story-step]')];
+  const horizontalProgress=$('#horizontalProgress');
+  const horizontalIndex=$('#horizontalIndex');
+
+  let horizontalRaf=0;
+  const updateHorizontalStory=()=>{
+    horizontalRaf=0;
+    if(!experience || !track || innerWidth<=980) return;
+
+    const rect=experience.getBoundingClientRect();
+    const scrollable=Math.max(1,experience.offsetHeight-innerHeight);
+    const progress=Math.max(0,Math.min(1,-rect.top/scrollable));
+    const travel=Math.max(0,track.scrollWidth-innerWidth);
+    const x=travel*progress;
+
+    track.style.transform='translate3d('+(-x).toFixed(1)+'px,0,0)';
+    if(horizontalProgress) horizontalProgress.style.width=(progress*100).toFixed(1)+'%';
+
+    const maxIndex=Math.max(0,storyPanels.length-1);
+    const exact=progress*maxIndex;
+    const activeIndex=Math.max(0,Math.min(maxIndex,Math.round(exact)));
+    if(horizontalIndex) horizontalIndex.textContent=String(activeIndex+1).padStart(2,'0');
+
+    storyPanels.forEach((panel,i)=>{
+      const delta=i-exact;
+      const abs=Math.min(2,Math.abs(delta));
+      const opacity=Math.max(.28,1-abs*.42);
+      const rotate=delta*-8;
+      const scale=Math.max(.91,1-abs*.055);
+      const copyShift=delta*-34;
+      panel.style.setProperty('--slide-opacity',opacity.toFixed(3));
+      panel.style.setProperty('--copy-shift',copyShift.toFixed(1)+'px');
+      panel.style.setProperty('--visual-rotate',rotate.toFixed(2)+'deg');
+      panel.style.setProperty('--visual-scale',scale.toFixed(3));
+      panel.classList.toggle('active',i===activeIndex);
+    });
   };
-  const requestStory=()=>{if(!storyRaf)storyRaf=requestAnimationFrame(updateStory)};
-  addEventListener('scroll',requestStory,{passive:true});
-  addEventListener('resize',requestStory,{passive:true});
-  updateStory();
+  const requestHorizontalStory=()=>{if(!horizontalRaf) horizontalRaf=requestAnimationFrame(updateHorizontalStory)};
+  addEventListener('scroll',requestHorizontalStory,{passive:true});
+  addEventListener('resize',requestHorizontalStory,{passive:true});
+  updateHorizontalStory();
 
   // Count animation
   const counters=$$('[data-count]');
