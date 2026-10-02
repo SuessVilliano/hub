@@ -137,6 +137,45 @@
     });
   }
 
+
+
+  // Immersive pinned story: keep one screen while the narrative and 3D world evolve.
+  const experience=$('#experience');
+  const experienceVisual=$('#experienceVisual');
+  const storySteps=$('[data-story-step]');
+  const experienceProgress=$('#experienceProgress');
+  const experienceIndex=$('#experienceIndex');
+  const experienceStatus=$('#experienceStatus');
+  const storyLabels=[
+    'DIAGNOSING THE SYSTEM',
+    'ARCHITECTING THE FLOW',
+    'BUILDING THE PRODUCT',
+    'CONNECTING REAL OPERATIONS',
+    'SCALING THE BUSINESS'
+  ];
+  let storyRaf=0;
+  const updateStory=()=>{
+    storyRaf=0;
+    if(!experience || !experienceVisual || innerWidth<=980) return;
+    const r=experience.getBoundingClientRect();
+    const scrollable=Math.max(1,r.height-innerHeight);
+    const progress=Math.max(0,Math.min(1,-r.top/scrollable));
+    const count=storySteps.length||1;
+    const index=Math.min(count-1,Math.floor(progress*count));
+    storySteps.forEach((step,i)=>step.classList.toggle('active',i===index));
+    experienceVisual.className='experience-visual scene-'+index;
+    if(experienceProgress)experienceProgress.style.width=(((index+1)/count)*100)+'%';
+    if(experienceIndex)experienceIndex.textContent=String(index+1).padStart(2,'0');
+    if(experienceStatus)experienceStatus.textContent=storyLabels[index]||'BUILDING';
+    const local=(progress*count)-index;
+    experienceVisual.style.setProperty('--story-local',local.toFixed(3));
+    experienceVisual.style.transform='translate3d(0,'+((local-.5)*-12).toFixed(2)+'px,0) rotateZ('+((local-.5)*.8).toFixed(2)+'deg)';
+  };
+  const requestStory=()=>{if(!storyRaf)storyRaf=requestAnimationFrame(updateStory)};
+  addEventListener('scroll',requestStory,{passive:true});
+  addEventListener('resize',requestStory,{passive:true});
+  updateStory();
+
   // Count animation
   const counters=$$('[data-count]');
   const countObserver=new IntersectionObserver(entries=>{
