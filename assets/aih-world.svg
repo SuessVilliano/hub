@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Applied Innovations Hub dimensional systems visualization">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset=".52" stop-color="#eaf4ff"/><stop offset="1" stop-color="#f2edff"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38d7ff"/><stop offset=".45" stop-color="#4f8cff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff" stop-opacity=".94"/><stop offset="1" stop-color="#ddecff" stop-opacity=".62"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#315a93" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1200" height="900" rx="64" fill="url(#bg)"/>
+<g opacity=".42" stroke="#8fb8e9" stroke-width="1">
+  <path d="M80 640 600 340l520 300-520 300Z" fill="none"/>
+  <path d="M160 640 600 390l440 250-440 250Z" fill="none"/>
+  <path d="M240 640 600 440l360 200-360 200Z" fill="none"/>
+  <path d="M320 640 600 490l280 150-280 150Z" fill="none"/>
+</g>
+<ellipse cx="600" cy="685" rx="365" ry="118" fill="#4f8cff" opacity=".08"/>
+<g filter="url(#shadow)">
+  <path d="M600 178 823 306 600 434 377 306Z" fill="url(#glass)" stroke="#b8d5f4"/>
+  <path d="M377 306 600 434v248L377 554Z" fill="#dcecff" stroke="#b8d5f4"/>
+  <path d="M823 306 600 434v248l223-128Z" fill="#cbdfff" stroke="#a8caef"/>
+  <path d="M600 178 823 306 600 434 377 306Z" fill="url(#blue)" opacity=".13"/>
+  <circle cx="600" cy="305" r="70" fill="url(#blue)"/>
+  <circle cx="600" cy="305" r="47" fill="#fff" opacity=".92"/>
+  <text x="600" y="323" text-anchor="middle" font-family="Arial,sans-serif" font-size="45" font-weight="800" fill="#18345e">AIH</text>
+</g>
+<g font-family="Arial,sans-serif" font-weight="700" fill="#18345e">
+  <g transform="translate(160 185)" filter="url(#shadow)"><rect width="250" height="112" rx="24" fill="url(#glass)" stroke="#bdd7f5"/><text x="25" y="44" font-size="17">REVENUE SYSTEMS</text><text x="25" y="76" font-size="13" fill="#5e7897">Demand · CRM · Conversion</text></g>
+  <g transform="translate(790 185)" filter="url(#shadow)"><rect width="250" height="112" rx="24" fill="url(#glass)" stroke="#bdd7f5"/><text x="25" y="44" font-size="17">PRODUCT + AI</text><text x="25" y="76" font-size="13" fill="#5e7897">Apps · Agents · Data</text></g>
+  <g transform="translate(125 565)" filter="url(#shadow)"><rect width="270" height="112" rx="24" fill="url(#glass)" stroke="#bdd7f5"/><text x="25" y="44" font-size="17">R&amp;D + OPERATIONS</text><text x="25" y="76" font-size="13" fill="#5e7897">Prototype · Fulfill · Deploy</text></g>
+  <g transform="translate(805 565)" filter="url(#shadow)"><rect width="270" height="112" rx="24" fill="url(#glass)" stroke="#bdd7f5"/><text x="25" y="44" font-size="17">ENTERPRISE</text><text x="25" y="76" font-size="13" fill="#5e7897">Finance · Contracts · Scale</text></g>
+</g>
+<g stroke="url(#blue)" stroke-width="5" stroke-linecap="round" opacity=".7">
+ <path d="M410 241C480 235 515 260 545 285"/><path d="M790 241C720 235 685 260 655 285"/>
+ <path d="M395 621C485 585 520 510 560 390"/><path d="M805 621C715 585 680 510 640 390"/>
+</g>
+<g fill="#4f8cff">
+ <circle cx="410" cy="241" r="7"/><circle cx="790" cy="241" r="7"/><circle cx="395" cy="621" r="7"/><circle cx="805" cy="621" r="7"/>
+</g>
+</svg>
